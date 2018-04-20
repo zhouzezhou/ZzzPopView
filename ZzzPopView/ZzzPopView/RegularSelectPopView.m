@@ -255,24 +255,37 @@
 -(void) btnClick_confirm:(id) sender
 {
     [self dismiss];
-    [self.delegate clickRegularSelectPopViewBtn_confirm_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    if([self.delegate respondsToSelector:@selector(clickRegularSelectPopViewBtn_confirm_regularSelectPopView:selectedItemByID:)])
+    {
+        [self.delegate clickRegularSelectPopViewBtn_confirm_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    }
 }
 
 -(void) btnClick_priviousBtn:(id) sender
 {
-    [self.delegate clickRegularSelectPopViewBtn_previous_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    if([self.delegate respondsToSelector:@selector(clickRegularSelectPopViewBtn_previous_regularSelectPopView:selectedItemByID:)])
+    {
+        [self.delegate clickRegularSelectPopViewBtn_previous_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    }
 }
 
 -(void) btnClick_nextBtn:(id) sender
 {
-    [self.delegate clickRegularSelectPopViewBtn_next_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    if([self.delegate respondsToSelector:@selector(clickRegularSelectPopViewBtn_next_regularSelectPopView:selectedItemByID:)])
+    {
+        [self.delegate clickRegularSelectPopViewBtn_next_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    }
 }
 
 // 灰色半透明背景层被点击
 -(void) shawdowViewTouchUpInside:(UITapGestureRecognizer *)recognizer
 {
     [self dismiss];
-    [self.delegate clickRegularSelectPopViewBtn_cancel_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    
+    if([self.delegate respondsToSelector:@selector(clickRegularSelectPopViewBtn_cancel_regularSelectPopView:selectedItemByID:)])
+    {
+        [self.delegate clickRegularSelectPopViewBtn_cancel_regularSelectPopView:self selectedItemByID:_regularSelectData.selectedRowID];
+    }
 }
 
 #pragma mark - Protocol Tableview Delegate
@@ -413,7 +426,12 @@
     //    NSLog(@"selected indexpath is %@", indexPath);
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self.delegate regularSelectPopView:self selectedItemByID:indexPath.row];
+    
+    if([self.delegate respondsToSelector:@selector(regularSelectPopView:selectedItemByID:)])
+    {
+        [self.delegate regularSelectPopView:self selectedItemByID:indexPath.row];
+    }
+    
     
     // 更新_tableview
 //    if(indexPath.row != self.selectedIndex)
