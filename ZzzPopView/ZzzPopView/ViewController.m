@@ -23,6 +23,9 @@
 @property (nonatomic, strong) RegularSelectPopView *regularSelectPopView_body;      // 选择部位的PopView
 @property (nonatomic, strong) DataRegularSelect *regularData_body;                  // 选择部位的PopView里的显示数据
 
+@property (nonatomic, strong) ScrollSelectPopView *scrollSelectPopView_motion;      // 选择动作的PopView
+@property (nonatomic, strong) DataScrollSelect *selectData_motion;                  // 选择动作的PopView里的显示数据
+
 @end
 
 @implementation ViewController
@@ -44,6 +47,13 @@
 
 #pragma mark - Private method
 -(void) configData
+{
+    [self configRegularPopView];
+    
+    [self configStripScrollPopView];
+}
+
+-(void) configRegularPopView
 {
     _regularData_body = [[DataRegularSelect alloc] init];
     
@@ -86,6 +96,56 @@
     _regularSelectPopView_body.delegate = self;
 }
 
+-(void) configStripScrollPopView
+{
+    _selectData_motion = [[DataScrollSelect alloc] init];
+    
+    [_selectData_motion.arrData addObject:@"坐姿划船"];
+    [_selectData_motion.arrData addObject:@"臀推(桥式提臀)"];
+    [_selectData_motion.arrData addObject:@"腿举"];
+    [_selectData_motion.arrData addObject:@"杠铃头上举"];
+    [_selectData_motion.arrData addObject:@"引体向上"];
+    [_selectData_motion.arrData addObject:@"坐姿高位下拉"];
+    [_selectData_motion.arrData addObject:@"坐姿哑铃臂弯举"];
+    [_selectData_motion.arrData addObject:@"坐姿双臂下压"];
+    [_selectData_motion.arrData addObject:@"杠铃弯举"];
+    [_selectData_motion.arrData addObject:@"仰卧杠铃屈臂伸"];
+    [_selectData_motion.arrData addObject:@"俯身支撑臂屈伸"];
+    [_selectData_motion.arrData addObject:@"仰卧起坐"];
+    [_selectData_motion.arrData addObject:@"躺姿卷腹"];
+    [_selectData_motion.arrData addObject:@"坐姿卷腹"];
+    [_selectData_motion.arrData addObject:@"杠铃站姿挺身"];
+    [_selectData_motion.arrData addObject:@"站姿抬腿"];
+    [_selectData_motion.arrData addObject:@"俯卧挺身"];
+    [_selectData_motion.arrData addObject:@"蝴蝶夹胸"];
+    [_selectData_motion.arrData addObject:@"斜躺上推"];
+    [_selectData_motion.arrData addObject:@"坐姿向前推胸"];
+    [_selectData_motion.arrData addObject:@"弓步前拉夹胸"];
+    [_selectData_motion.arrData addObject:@"平板哑铃卧推"];
+    [_selectData_motion.arrData addObject:@"坐姿臂屈伸"];
+    [_selectData_motion.arrData addObject:@"站姿双臂下摆"];
+    [_selectData_motion.arrData addObject:@"T型杆划船"];
+    [_selectData_motion.arrData addObject:@"单手哑铃划船"];
+    [_selectData_motion.arrData addObject:@"杠铃划船"];
+    [_selectData_motion.arrData addObject:@"坐姿向前推胸"];
+    [_selectData_motion.arrData addObject:@"坐姿向前推胸"];
+    [_selectData_motion.arrData addObject:@"坐姿向前推胸"];
+    [_selectData_motion.arrData addObject:@"保加利亚深蹲"];
+    [_selectData_motion.arrData addObject:@"站姿直腿上摆"];
+    [_selectData_motion.arrData addObject:@"自由重量深蹲"];
+    [_selectData_motion.arrData addObject:@"坐姿腿屈伸"];
+    [_selectData_motion.arrData addObject:@"俯卧腿弯曲"];
+    [_selectData_motion.arrData addObject:@"哈克深蹲"];
+    [_selectData_motion.arrData addObject:@"臀推"];
+    
+    _selectData_motion.isShowPriviouBtn = YES;
+    _selectData_motion.isShowNextBtn = YES;
+    _selectData_motion.isShowConfirmBtn = YES;
+    
+    _scrollSelectPopView_motion = [ScrollSelectPopView popviewWithScrollSelectData:_selectData_motion];
+    _scrollSelectPopView_motion.delegate = self;
+}
+
 -(void) configView
 {
     UIButton *RegularSelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - 44.f - 10, kScreenWidth - 20, 44.f)];
@@ -94,6 +154,13 @@
     [RegularSelectBtn.layer setCornerRadius:4.f];
     [RegularSelectBtn addTarget:self action:@selector(RegularSelectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:RegularSelectBtn];
+    
+    UIButton *stripScrollSelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - 44.f - 10 - 44.f - 10, kScreenWidth - 20, 44.f)];
+    [stripScrollSelectBtn setTitle:@"StripScrollSelectBtn" forState:UIControlStateNormal];
+    [stripScrollSelectBtn setBackgroundColor:[UIColor orangeColor]];
+    [stripScrollSelectBtn.layer setCornerRadius:4.f];
+    [stripScrollSelectBtn addTarget:self action:@selector(StripScrollSelectBtnBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:stripScrollSelectBtn];
 }
 
 #pragma mark - Button respond
@@ -102,6 +169,10 @@
     [_regularSelectPopView_body showInView:[UIApplication sharedApplication].keyWindow];
 }
 
+-(void) StripScrollSelectBtnBtnClick:(UIButton *) sender
+{
+    [_scrollSelectPopView_motion showInView:[UIApplication sharedApplication].keyWindow];
+}
 
 #pragma mark - Protocol RegularSelectPopViewDelegate
 
@@ -156,5 +227,55 @@
     }
     
 }
+
+#pragma mark - Protocol ScrollSelectPopViewDelegate
+- (void)clickScrollSelectPopViewBtn_next_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
+{
+    if(popview == _scrollSelectPopView_motion)
+    {
+        //        NSLog(@"11111111111_scrollSelectPopView_motion");
+    }
+    
+    NSLog(@"clickScrollSelectPopViewBtn_next");
+}
+
+- (void)clickScrollSelectPopViewBtn_previous_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
+{
+    NSLog(@"clickScrollSelectPopViewBtn_previous");
+}
+
+- (void)clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
+{
+    NSLog(@"clickScrollSelectPopViewBtn_confirm");
+}
+
+- (void)clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
+{
+    NSLog(@"clickScrollSelectPopViewBtn_cancel");
+    if(popview == _scrollSelectPopView_motion)
+    {
+//        NSLog(@"groupIndex: %ld, itemIndex :%ld", (long)groupIndex, (long)itemIndex);
+//        NSString *tempstr = _motionArrayOri[itemIndex].motion_name;
+//        NSLog(@"motion name is :%@", tempstr);
+//        [_dataOnceMotion setId_motion:_motionArrayOri[itemIndex].id_motion];
+//        [_motionLabelContent setText:tempstr];
+    }
+}
+
+// 选择的结果:groupIndex 组id，itemIndex 实体内容id
+-(void) scrollSelectPopView:(ScrollSelectPopView *) popview selectedItemByGroupID:(NSInteger) groupIndex itemID: (NSInteger) itemIndex
+{
+    //    NSLog(@"groupIndex: %ld, itemIndex :%ld, value is :%@", (long)groupIndex, (long)itemIndex, (NSString *)_selectData[groupIndex].arrData[itemIndex]);
+    
+    if(popview == _scrollSelectPopView_motion)
+    {
+//        NSLog(@"groupIndex: %ld, itemIndex :%ld", (long)groupIndex, (long)itemIndex);
+//        NSString *tempstr = _motionArrayOri[itemIndex].motion_name;
+//        NSLog(@"motion name is :%@", tempstr);
+//        [_dataOnceMotion setId_motion:_motionArrayOri[itemIndex].id_motion];
+//        [_motionLabelContent setText:tempstr];
+    }
+}
+
 
 @end

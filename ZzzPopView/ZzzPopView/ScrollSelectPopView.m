@@ -100,7 +100,6 @@
         [self addSubview:backgroudView];
         _containerView = backgroudView;
         
-        
         // PickerView
         _pickerView = [[UIPickerView alloc] init];
         _pickerView.delegate = self;
@@ -124,8 +123,9 @@
         [_pickerView selectRow:data.selectedRowID inComponent:0 animated:NO];
         
         // 选中按钮
-        UIImageView *selectedImg = [[UIImageView alloc] init];
-        [selectedImg setBackgroundColor:[UIColor redColor]];
+        UIImageView *selectedImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrows_right"]];
+//        [selectedImg setBackgroundColor:[UIColor redColor]];
+//        [selectedImg setImage:[UIImage imageNamed:@"selectedImg"]];
         [backgroudView addSubview:selectedImg];
         
         [selectedImg mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -326,31 +326,48 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.delegate scrollSelectPopView:self selectedItemByGroupID:component itemID:row];
+    if([self.delegate respondsToSelector:@selector(scrollSelectPopView:selectedItemByGroupID:)])
+    {
+        [self.delegate scrollSelectPopView:self selectedItemByGroupID:component itemID:row];
+    }
 }
 
 #pragma mark - Event
 -(void) btnClick_confirm:(id) sender
 {
     [self dismiss];
-    [self.delegate clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
+    
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:selectedItemByGroupID:)])
+    {
+        [self.delegate clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
+    }
 }
 
 -(void) btnClick_priviousBtn:(id) sender
 {
-    [self.delegate clickScrollSelectPopViewBtn_previous_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_previous_scrollSelectPopView:selectedItemByGroupID:)])
+    {
+        [self.delegate clickScrollSelectPopViewBtn_previous_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
+    }
 }
 
 -(void) btnClick_nextBtn:(id) sender
 {
-    [self.delegate clickScrollSelectPopViewBtn_next_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_next_scrollSelectPopView:selectedItemByGroupID:)])
+    {
+        [self.delegate clickScrollSelectPopViewBtn_next_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
+    }
 }
 
 // 灰色半透明背景层被点击
 -(void) shawdowViewTouchUpInside:(UITapGestureRecognizer *)recognizer
 {
     [self dismiss];
-    [self.delegate clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:self selectedItemByGroupID:0 itemID:[self.pickerView selectedRowInComponent:0]];
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:selectedItemByGroupID:)])
+    {
+        [self.delegate clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:self selectedItemByGroupID:0 itemID:[self.pickerView selectedRowInComponent:0]];
+    }
+    
 }
 
 @end
