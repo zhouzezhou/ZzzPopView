@@ -36,7 +36,7 @@
 // 滑动选择PopView类
 @interface ScrollSelectPopView : UIView
 
-@property (nonatomic, strong) id<ScrollSelectPopViewDelegate> delegate;
+@property (nonatomic, weak) id<ScrollSelectPopViewDelegate> delegate;
 
 // 初始化View
 +(ScrollSelectPopView *) popviewWithScrollSelectData:(DataScrollSelect *) data;

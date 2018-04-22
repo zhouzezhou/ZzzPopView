@@ -19,7 +19,6 @@
 // 设置RGB颜色值
 #define COLOR(R,G,B,A)    [UIColor colorWithRed:(CGFloat)R/255.0 green:(CGFloat)G/255.0 blue:(CGFloat)B/255.0 alpha:A]
 
-
 #define PRESENTATION_ANIMATION_DURATION 0.5
 #define DISMISS_ANIMATION_DURATION 0.5
 #define PADDING 10.f

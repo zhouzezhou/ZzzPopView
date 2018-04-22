@@ -33,7 +33,7 @@
 
 @interface RegularSelectPopView : UIView
 
-@property (nonatomic, strong) id<RegularSelectPopViewDelegate> delegate;
+@property (nonatomic, weak) id<RegularSelectPopViewDelegate> delegate;
 
 // 初始化View
 +(RegularSelectPopView *) popviewWithRegularSelectData:(DataRegularSelect *) data;

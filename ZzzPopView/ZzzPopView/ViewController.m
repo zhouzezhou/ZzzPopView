@@ -20,6 +20,8 @@
 
 @interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate>
 
+@property (nonatomic, strong) UILabel *displayLabel;    // 打印信息
+
 @property (nonatomic, strong) RegularSelectPopView *regularSelectPopView_body;      // 选择部位的PopView
 @property (nonatomic, strong) DataRegularSelect *regularData_body;                  // 选择部位的PopView里的显示数据
 
@@ -148,6 +150,13 @@
 
 -(void) configView
 {
+    _displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kStatusBarHeight + 10, kScreenWidth - 20, kScreenHeight - 44.f - 10 - 44.f - 10 - 10 - kStatusBarHeight - 10)];
+    [_displayLabel setNumberOfLines:0];
+    [_displayLabel setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [_displayLabel setText:@"日志:"];
+    [_displayLabel setTextAlignment:NSTextAlignmentLeft];
+    [self.view addSubview:_displayLabel];
+    
     UIButton *RegularSelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - 44.f - 10, kScreenWidth - 20, 44.f)];
     [RegularSelectBtn setTitle:@"RegularSelectPopView" forState:UIControlStateNormal];
     [RegularSelectBtn setBackgroundColor:[UIColor orangeColor]];
@@ -161,6 +170,11 @@
     [stripScrollSelectBtn.layer setCornerRadius:4.f];
     [stripScrollSelectBtn addTarget:self action:@selector(StripScrollSelectBtnBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:stripScrollSelectBtn];
+}
+
+-(void) setLogText:(NSString *) text
+{
+    [_displayLabel setText:[NSString stringWithFormat:@"%@\n%@", _displayLabel.text, text]];
 }
 
 #pragma mark - Button respond
@@ -179,21 +193,25 @@
 - (void)clickRegularSelectPopViewBtn_next_regularSelectPopView:(RegularSelectPopView *) popview selectedItemByID:(NSInteger) selectedID
 {
     NSLog(@"clickRegularSelectPopViewBtn_next");
+    [self setLogText:@"clickRegularSelectPopViewBtn_next"];
 }
 
 - (void)clickRegularSelectPopViewBtn_previous_regularSelectPopView:(RegularSelectPopView *) popview selectedItemByID:(NSInteger) selectedID
 {
     NSLog(@"clickRegularSelectPopViewBtn_previous");
+    [self setLogText:@"clickRegularSelectPopViewBtn_previous"];
 }
 
 - (void)clickRegularSelectPopViewBtn_confirm_regularSelectPopView:(RegularSelectPopView *) popview selectedItemByID:(NSInteger) selectedID
 {
     NSLog(@"clickRegularSelectPopViewBtn_confirm");
+    [self setLogText:@"clickRegularSelectPopViewBtn_confirm"];
 }
 
 - (void)clickRegularSelectPopViewBtn_cancel_regularSelectPopView:(RegularSelectPopView *) popview selectedItemByID:(NSInteger) selectedID
 {
     NSLog(@"clickRegularSelectPopViewBtn_cancel");
+    [self setLogText:@"clickRegularSelectPopViewBtn_cancel"];
 }
 
 // 选择的结果:selectedID 被选中的项的id
@@ -201,6 +219,8 @@
 {
     if(popview == _regularSelectPopView_body)
     {
+        [self setLogText:[NSString stringWithFormat:@"regularSelectPopView selectedID is :%ld", (long)selectedID]];
+        
 //        NSLog(@"selectedItemByID : %lu, body name is :%@", (long)selectedID, _bodyArrayOri[selectedID].body_name);
 //        [_regularSelectPopView_body dismiss];
 //
@@ -234,6 +254,10 @@
     if(popview == _scrollSelectPopView_motion)
     {
         //        NSLog(@"11111111111_scrollSelectPopView_motion");
+        
+        
+        [self setLogText:@"clickScrollSelectPopViewBtn_next"];
+        
     }
     
     NSLog(@"clickScrollSelectPopViewBtn_next");
@@ -242,16 +266,19 @@
 - (void)clickScrollSelectPopViewBtn_previous_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
 {
     NSLog(@"clickScrollSelectPopViewBtn_previous");
+    [self setLogText:@"clickScrollSelectPopViewBtn_previous"];
 }
 
 - (void)clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
 {
     NSLog(@"clickScrollSelectPopViewBtn_confirm");
+    [self setLogText:@"clickScrollSelectPopViewBtn_confirm"];
 }
 
 - (void)clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
 {
     NSLog(@"clickScrollSelectPopViewBtn_cancel");
+    [self setLogText:@"clickScrollSelectPopViewBtn_cancel"];
     if(popview == _scrollSelectPopView_motion)
     {
 //        NSLog(@"groupIndex: %ld, itemIndex :%ld", (long)groupIndex, (long)itemIndex);
@@ -269,6 +296,7 @@
     
     if(popview == _scrollSelectPopView_motion)
     {
+        [self setLogText:[NSString stringWithFormat:@"scrollSelectPopView itemIndex is :%ld", (long)itemIndex]];
 //        NSLog(@"groupIndex: %ld, itemIndex :%ld", (long)groupIndex, (long)itemIndex);
 //        NSString *tempstr = _motionArrayOri[itemIndex].motion_name;
 //        NSLog(@"motion name is :%@", tempstr);
