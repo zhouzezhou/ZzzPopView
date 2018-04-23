@@ -120,7 +120,7 @@
         }];
     
         // 默认选中项
-        [_pickerView selectRow:data.selectedRowID inComponent:0 animated:NO];
+        [self.pickerView selectRow:data.selectedRowID inComponent:0 animated:NO];
         
         // 选中按钮
         UIImageView *selectedImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrows_right"]];
@@ -130,7 +130,7 @@
         
         [selectedImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(backgroudView.mas_left).with.offset(paddingLeft);
-            make.centerY.mas_equalTo(_pickerView);
+            make.centerY.mas_equalTo(self.pickerView);
             make.width.mas_equalTo(self.selectedImgWidth);
             make.height.mas_equalTo(self.selectedImgWidth);
         }];
@@ -326,7 +326,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if([self.delegate respondsToSelector:@selector(scrollSelectPopView:selectedItemByGroupID:)])
+    if([self.delegate respondsToSelector:@selector(scrollSelectPopView:selectedItemByGroupID:itemID:)])
     {
         [self.delegate scrollSelectPopView:self selectedItemByGroupID:component itemID:row];
     }
@@ -337,7 +337,7 @@
 {
     [self dismiss];
         
-    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:selectedItemByGroupID:)])
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:selectedItemByGroupID:itemID:)])
     {
         [self.delegate clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
     }
@@ -345,7 +345,7 @@
 
 -(void) btnClick_priviousBtn:(id) sender
 {
-    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_previous_scrollSelectPopView:selectedItemByGroupID:)])
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_previous_scrollSelectPopView:selectedItemByGroupID:itemID:)])
     {
         [self.delegate clickScrollSelectPopViewBtn_previous_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
     }
@@ -353,7 +353,7 @@
 
 -(void) btnClick_nextBtn:(id) sender
 {
-    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_next_scrollSelectPopView:selectedItemByGroupID:)])
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_next_scrollSelectPopView:selectedItemByGroupID:itemID:)])
     {
         [self.delegate clickScrollSelectPopViewBtn_next_scrollSelectPopView:self selectedItemByGroupID:[self.pickerView selectedRowInComponent:0] itemID: 0];
     }
@@ -363,7 +363,7 @@
 -(void) shawdowViewTouchUpInside:(UITapGestureRecognizer *)recognizer
 {
     [self dismiss];
-    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:selectedItemByGroupID:)])
+    if([self.delegate respondsToSelector:@selector(clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:selectedItemByGroupID:itemID:)])
     {
         [self.delegate clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:self selectedItemByGroupID:0 itemID:[self.pickerView selectedRowInComponent:0]];
     }
