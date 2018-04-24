@@ -262,10 +262,12 @@
 
 - (void)dismiss
 {
-    [UIView animateWithDuration:DISMISS_ANIMATION_DURATION
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
+    [UIView animateWithDuration:PRESENTATION_ANIMATION_DURATION
+                          delay:0
+         usingSpringWithDamping:1.0
+          initialSpringVelocity:1
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
                              
                              //                             _containerView.alpha = 0.0;
                              self.allBackgroudView.alpha = 0.0;

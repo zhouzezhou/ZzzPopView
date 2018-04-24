@@ -225,9 +225,11 @@
 
 - (void)dismiss
 {
-    [UIView animateWithDuration:DISMISS_ANIMATION_DURATION
+    [UIView animateWithDuration:PRESENTATION_ANIMATION_DURATION
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseInOut
+         usingSpringWithDamping:1.0
+          initialSpringVelocity:1
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          
                          //                             _containerView.alpha = 0.0;
