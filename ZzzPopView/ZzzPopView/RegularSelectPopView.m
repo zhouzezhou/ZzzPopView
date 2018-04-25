@@ -435,6 +435,8 @@
         [self.delegate regularSelectPopView:self selectedItemByID:indexPath.row];
     }
     
+    [self dismiss];
+    
     
     // 更新_tableview
 //    if(indexPath.row != self.selectedIndex)
