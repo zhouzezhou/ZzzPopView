@@ -16,6 +16,7 @@
 // 系统状态栏高度
 #define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 
+
 // 设置RGB颜色值
 #define COLOR(R,G,B,A)    [UIColor colorWithRed:(CGFloat)R/255.0 green:(CGFloat)G/255.0 blue:(CGFloat)B/255.0 alpha:A]
 
@@ -237,8 +238,8 @@
     _containerView.alpha = 0;
     _allBackgroudView.alpha = 0;
     
-    // 从下向上滑入
-    CGRect oriFrame = CGRectMake(kScreenWidth * 0.5f, kScreenHeight, _backgroudViewWidth, _backgroudViewHeight);
+    // 从右向左滑入
+    CGRect oriFrame = CGRectMake(kScreenWidth, kStatusBarHeight, _backgroudViewWidth, _backgroudViewHeight);
     _containerView.frame = oriFrame;
     
     [view addSubview:self];
@@ -253,7 +254,7 @@
                          self.containerView.alpha = 1.0f;
                          self.allBackgroudView.alpha = 0.6f;
                          
-                         // 从下向上滑入
+                         // 从右向左滑入
                          self.containerView.frame = CGRectMake(kScreenWidth * 0.5f, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
                      } completion:^(BOOL finished) {
 //                         [_pickerView selectRow:row inComponent:component animated:NO];
@@ -273,8 +274,8 @@
                              self.allBackgroudView.alpha = 0.0;
                              //                             self.alpha = 0.0;
                              
-                             // 从上向下滑出
-                             CGRect oriFrame = CGRectMake(kScreenWidth * 0.5f, kScreenHeight, self.backgroudViewWidth, self.backgroudViewHeight);
+                             // 从左向右滑出
+                             CGRect oriFrame = CGRectMake(kScreenWidth, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
                              self.containerView.frame = oriFrame;
                              
                              // 从左向右滑出

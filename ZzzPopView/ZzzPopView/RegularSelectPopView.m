@@ -201,7 +201,9 @@
     _allBackgroudView.alpha = 0;
     
     // 从下向上滑入
-    CGRect oriFrame = CGRectMake(kScreenWidth * 0.5f, kScreenHeight, _backgroudViewWidth, _backgroudViewHeight);
+//    CGRect oriFrame = CGRectMake(kScreenWidth * 0.5f, kScreenHeight, _backgroudViewWidth, _backgroudViewHeight);
+    // 从右向左滑入
+    CGRect oriFrame = CGRectMake(kScreenWidth, kStatusBarHeight, _backgroudViewWidth, _backgroudViewHeight);
     _containerView.frame = oriFrame;
     
     [view addSubview:self];
@@ -236,8 +238,8 @@
                          self.allBackgroudView.alpha = 0.0;
                          //                             self.alpha = 0.0;
                          
-                         // 从上向下滑出
-                         CGRect oriFrame = CGRectMake(kScreenWidth * 0.5f, kScreenHeight, self.backgroudViewWidth, self.backgroudViewHeight);
+                         // 从左向右滑出
+                         CGRect oriFrame = CGRectMake(kScreenWidth, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
                          self.containerView.frame = oriFrame;
                          
                          // 从左向右滑出
