@@ -21,10 +21,12 @@
 
 #define PRESENTATION_ANIMATION_DURATION 0.5
 #define DISMISS_ANIMATION_DURATION 0.5
+#define PADDING_backgroudView 20.f      // 背景层的右、下边距
 #define PADDING 10.f
 #define TITLEFONTSIZE 20
 #define TITLEFONTSIZE_ALONE 30      // 只有标题时的字体大小，以后修改为动态计算获得 20180306
 #define DESCRIPTFONTSIZE 15
+#define DefaultCornerRadius 6.f        // 默认的圆角弧度
 
 @interface RegularSelectPopView() <UITableViewDelegate, UITableViewDataSource>
 
@@ -79,7 +81,6 @@
         UITapGestureRecognizer *shawdowViewTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(shawdowViewTouchUpInside:)];
         [shawdowView addGestureRecognizer:shawdowViewTapGestureRecognizer];
         
-        
         // 初始化数据
         _showingItemIndex = 0;
         
@@ -88,13 +89,15 @@
         float paddingLeft = 10.f;               // 左边距
         _selectedImgWidth = 20.f;          // 选中图片宽度
         _backgroudViewWidth = kScreenWidth * 0.5f; // 白色背景层宽度
-        _backgroudViewHeight = kScreenHeight - kStatusBarHeight;      // 白色背景层高度
+        _backgroudViewHeight = kScreenHeight - kStatusBarHeight - PADDING_backgroudView;      // 白色背景层高度
         _titleFontSize = 30.f;
         _descriptFontSize = 18.f;
         
         // 承载容器的视图,注意：修改此处需同时修改show和dimiss
-        UIView *backgroudView = [[UIView alloc] initWithFrame:CGRectMake(_backgroudViewWidth, kStatusBarHeight, _backgroudViewWidth, _backgroudViewHeight)];
+        UIView *backgroudView = [[UIView alloc] initWithFrame:CGRectMake(_backgroudViewWidth - PADDING_backgroudView, kStatusBarHeight, _backgroudViewWidth, _backgroudViewHeight)];
         backgroudView.backgroundColor  = [UIColor whiteColor];
+        [backgroudView.layer setCornerRadius:DefaultCornerRadius];
+        [backgroudView.layer setMasksToBounds:YES];
         [self addSubview:backgroudView];
         _containerView = backgroudView;
         
@@ -121,7 +124,7 @@
             // 上一个
             UIButton *priviousBtn = [[UIButton alloc] init];
             [priviousBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [priviousBtn setBackgroundColor:[UIColor blackColor]];
+            [priviousBtn setBackgroundColor:[UIColor whiteColor]];
             [priviousBtn.layer setCornerRadius:4.0f];
             [priviousBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
             [priviousBtn setTitle:@"上一个" forState:UIControlStateNormal];
@@ -130,19 +133,11 @@
             
             [priviousBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(backgroudView.mas_left).with.offset(paddingLeft);
-                //                    make.right.mas_equalTo(backgroudView.mas_right).with.offset(-UI_PaddingLeft);
-                //                    make.top.mas_equalTo(backgroudView.mas_top);
-                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
+                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft / 2);
             }];
             
             [priviousBtn setHidden:NO];
         }
-        //        else
-        //        {
-        //            [priviousBtn setHidden:YES];
-        //        }
-        
-        
         
         // 根据要求显示或隐藏按钮
         if(data.isShowConfirmBtn)
@@ -157,22 +152,13 @@
             
             [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.mas_equalTo(backgroudView);
-                //                    make.left.mas_equalTo(backgroudView.mas_left).with.offset(10.f);
-                //                    make.right.mas_equalTo(backgroudView.mas_right).with.offset(-UI_PaddingLeft);
-                //                    make.top.mas_equalTo(backgroudView.mas_top);
-                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
+                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft / 2);
             }];
             
             [confirmBtn addTarget:self action:@selector(btnClick_confirm:) forControlEvents:UIControlEventTouchUpInside];
             
             [confirmBtn setHidden:NO];
         }
-        //        else
-        //        {
-        //            [confirmBtn setHidden:YES];
-        //        }
-        
-        
         
         // 根据要求显示或隐藏按钮
         if(data.isShowNextBtn)
@@ -188,18 +174,12 @@
             [backgroudView addSubview:nextBtn];
             
             [nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-                //                    make.left.mas_equalTo(backgroudView.mas_left).with.offset(10.f);
                 make.right.mas_equalTo(backgroudView.mas_right).with.offset(-paddingLeft);
-                //                    make.top.mas_equalTo(backgroudView.mas_top);
-                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
+                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft / 2);
             }];
             
             [nextBtn setHidden:NO];
         }
-        //        else
-        //        {
-        //            [nextBtn setHidden:YES];
-        //        }
     }
     return self;
 }
@@ -229,7 +209,7 @@
                          self.allBackgroudView.alpha = 0.6f;
                          
                          // 从下向上滑入
-                         self.containerView.frame = CGRectMake(kScreenWidth * 0.5f, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
+                         self.containerView.frame = CGRectMake(self.backgroudViewWidth - PADDING_backgroudView, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
                      } completion:^(BOOL finished) {
                          //                         [_pickerView selectRow:row inComponent:component animated:NO];
                      }];

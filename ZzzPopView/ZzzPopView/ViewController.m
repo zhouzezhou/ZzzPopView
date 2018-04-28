@@ -90,12 +90,12 @@
     [_regularData_body.data addObject:temp5];
     
     _regularData_body.selectedRowID = 0;
-//    _regularData_body.isShowNextBtn = YES;
-//    _regularData_body.isShowPriviouBtn = YES;
-//    _regularData_body.isShowConfirmBtn = YES;
-    _regularData_body.isShowNextBtn = NO;
-    _regularData_body.isShowPriviouBtn = NO;
-    _regularData_body.isShowConfirmBtn = NO;
+    _regularData_body.isShowNextBtn = YES;
+    _regularData_body.isShowPriviouBtn = YES;
+    _regularData_body.isShowConfirmBtn = YES;
+//    _regularData_body.isShowNextBtn = NO;
+//    _regularData_body.isShowPriviouBtn = NO;
+//    _regularData_body.isShowConfirmBtn = NO;
     
     _regularSelectPopView_body = [RegularSelectPopView popviewWithRegularSelectData:_regularData_body];
     _regularSelectPopView_body.delegate = self;
