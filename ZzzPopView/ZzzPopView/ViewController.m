@@ -211,30 +211,6 @@
     if(popview == _regularSelectPopView_body)
     {
         [self setLogText:[NSString stringWithFormat:@"regularSelectPopView selectedID is :%ld", (long)selectedID]];
-        
-//        NSLog(@"selectedItemByID : %lu, body name is :%@", (long)selectedID, _bodyArrayOri[selectedID].body_name);
-//        [_regularSelectPopView_body dismiss];
-//
-//        // 根据选中的锻炼部位弹出对应的动作
-//        // 动作数据
-//        _motionArrayOri = [_dBUtilMotionAndBody getMotionByBodyID:[NSString stringWithFormat:@"%lu", (long)selectedID + 1]];
-//        [_selectData_motion.arrData removeAllObjects];
-//        [_motionArrayOri enumerateObjectsUsingBlock:^(DataSetMotion * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            [_selectData_motion.arrData addObject:obj.motion_name];
-//            //  若之前选择的动作在此数组中，则找出其的index做为popview里的默认选中项
-//            if(_dataOnceMotion.id_motion && (obj.id_motion == _dataOnceMotion.id_motion))
-//            {
-//                _selectData_motion.selectedRowID = idx;
-//            }
-//        }];
-//
-//        _selectData_motion.isShowPriviouBtn = YES;
-//        _selectData_motion.isShowNextBtn = YES;
-//
-//        _scrollSelectPopView_motion = [ScrollSelectPopView popviewWithScrollSelectData:_selectData_motion];
-//        _scrollSelectPopView_motion.delegate = self;
-//
-//        [_scrollSelectPopView_motion showInView:[UIApplication sharedApplication].keyWindow];
     }
     
 }
@@ -244,55 +220,45 @@
 {
     if(popview == _scrollSelectPopView_motion)
     {
-        //        NSLog(@"11111111111_scrollSelectPopView_motion");
-        
-        
         [self setLogText:@"clickScrollSelectPopViewBtn_next"];
-        
+        NSLog(@"clickScrollSelectPopViewBtn_next");
     }
-    
-    NSLog(@"clickScrollSelectPopViewBtn_next");
 }
 
 - (void)clickScrollSelectPopViewBtn_previous_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
 {
-    NSLog(@"clickScrollSelectPopViewBtn_previous");
-    [self setLogText:@"clickScrollSelectPopViewBtn_previous"];
+    if(popview == _scrollSelectPopView_motion)
+    {
+        NSLog(@"clickScrollSelectPopViewBtn_previous");
+        [self setLogText:@"clickScrollSelectPopViewBtn_previous"];
+    }
 }
 
 - (void)clickScrollSelectPopViewBtn_confirm_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
 {
-    NSLog(@"clickScrollSelectPopViewBtn_confirm");
-    [self setLogText:@"clickScrollSelectPopViewBtn_confirm"];
+    if(popview == _scrollSelectPopView_motion)
+    {
+        NSLog(@"clickScrollSelectPopViewBtn_confirm");
+        [self setLogText:@"clickScrollSelectPopViewBtn_confirm"];
+    }
 }
 
 - (void)clickScrollSelectPopViewBtn_cancel_scrollSelectPopView:(ScrollSelectPopView *)popview selectedItemByGroupID:(NSInteger)groupIndex itemID:(NSInteger)itemIndex
 {
-    NSLog(@"clickScrollSelectPopViewBtn_cancel");
-    [self setLogText:@"clickScrollSelectPopViewBtn_cancel"];
     if(popview == _scrollSelectPopView_motion)
     {
-//        NSLog(@"groupIndex: %ld, itemIndex :%ld", (long)groupIndex, (long)itemIndex);
-//        NSString *tempstr = _motionArrayOri[itemIndex].motion_name;
-//        NSLog(@"motion name is :%@", tempstr);
-//        [_dataOnceMotion setId_motion:_motionArrayOri[itemIndex].id_motion];
-//        [_motionLabelContent setText:tempstr];
+        NSLog(@"clickScrollSelectPopViewBtn_cancel");
+        [self setLogText:@"clickScrollSelectPopViewBtn_cancel"];
     }
 }
 
 // 选择的结果:groupIndex 组id，itemIndex 实体内容id
 -(void) scrollSelectPopView:(ScrollSelectPopView *) popview selectedItemByGroupID:(NSInteger) groupIndex itemID: (NSInteger) itemIndex
 {
-    //    NSLog(@"groupIndex: %ld, itemIndex :%ld, value is :%@", (long)groupIndex, (long)itemIndex, (NSString *)_selectData[groupIndex].arrData[itemIndex]);
-    
     if(popview == _scrollSelectPopView_motion)
     {
+        NSLog(@"%@", [NSString stringWithFormat:@"scrollSelectPopView itemIndex is :%ld", (long)itemIndex]);
         [self setLogText:[NSString stringWithFormat:@"scrollSelectPopView itemIndex is :%ld", (long)itemIndex]];
-//        NSLog(@"groupIndex: %ld, itemIndex :%ld", (long)groupIndex, (long)itemIndex);
-//        NSString *tempstr = _motionArrayOri[itemIndex].motion_name;
-//        NSLog(@"motion name is :%@", tempstr);
-//        [_dataOnceMotion setId_motion:_motionArrayOri[itemIndex].id_motion];
-//        [_motionLabelContent setText:tempstr];
     }
 }
 
