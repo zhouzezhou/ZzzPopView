@@ -93,6 +93,10 @@
         NSString *contentHeight = @"重";
         CGSize sizeHeight =[contentHeight sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:btnFontSize]}];
         _pickviewHeight = 2 * (_backgroudViewHeight - paddingLeft - sizeHeight.height);
+        if(!data.isShowNextBtn && !data.isShowConfirmBtn && !data.isShowPriviouBtn)
+        {
+            _pickviewHeight = 2 * (_backgroudViewHeight);
+        }
         _pickviewRowHeight = _backgroudViewHeight / 15;
         
         // 承载容器的视图,注意：修改此处需同时修改show和dimiss
@@ -112,9 +116,6 @@
         
         [_pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(backgroudView).with.offset(-(self.pickviewHeight / 4));
-            //                    make.bottom.mas_equalTo(confirmBtn.mas_top);
-            //                    make.bottom.mas_equalTo(backgroudView.mas_bottom);
-            //                    make.left.mas_equalTo(selectedImg.mas_right);
             make.left.mas_equalTo(backgroudView);
             make.right.mas_equalTo(backgroudView.mas_right);
             make.height.mas_equalTo(self.pickviewHeight);
