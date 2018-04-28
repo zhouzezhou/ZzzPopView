@@ -89,14 +89,6 @@
     
     [_regularData_body.data addObject:temp5];
     
-    _regularData_body.selectedRowID = 0;
-    _regularData_body.isShowNextBtn = YES;
-    _regularData_body.isShowPriviouBtn = YES;
-    _regularData_body.isShowConfirmBtn = YES;
-//    _regularData_body.isShowNextBtn = NO;
-//    _regularData_body.isShowPriviouBtn = NO;
-//    _regularData_body.isShowConfirmBtn = NO;
-    
     _regularSelectPopView_body = [RegularSelectPopView popviewWithRegularSelectData:_regularData_body];
     _regularSelectPopView_body.delegate = self;
 }
@@ -142,13 +134,6 @@
     [_selectData_motion.arrData addObject:@"俯卧腿弯曲"];
     [_selectData_motion.arrData addObject:@"哈克深蹲"];
     [_selectData_motion.arrData addObject:@"臀推"];
-    
-    _selectData_motion.isShowPriviouBtn = YES;
-    _selectData_motion.isShowNextBtn = YES;
-    _selectData_motion.isShowConfirmBtn = YES;
-//    _selectData_motion.isShowPriviouBtn = NO;
-//    _selectData_motion.isShowNextBtn = NO;
-//    _selectData_motion.isShowConfirmBtn = NO;
     
     _scrollSelectPopView_motion = [ScrollSelectPopView popviewWithScrollSelectData:_selectData_motion];
     _scrollSelectPopView_motion.delegate = self;

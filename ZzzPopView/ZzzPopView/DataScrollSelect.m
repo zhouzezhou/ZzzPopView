@@ -17,8 +17,8 @@
     {
         self.arrData = [NSMutableArray array];
         self.selectedRowID = 0;
-        self.isShowNextBtn = YES;
-        self.isShowPriviouBtn = YES;        
+        self.isShowNextBtn = NO;
+        self.isShowPriviouBtn = NO;
         self.isShowConfirmBtn = NO;
     }
     return self;

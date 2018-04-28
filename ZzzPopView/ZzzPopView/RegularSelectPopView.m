@@ -19,13 +19,15 @@
 // 设置RGB颜色值
 #define COLOR(R,G,B,A)    [UIColor colorWithRed:(CGFloat)R/255.0 green:(CGFloat)G/255.0 blue:(CGFloat)B/255.0 alpha:A]
 
+#define TITLEFONTSIZE 20            // 标题和内容都有的时候显示的标题的字体大小
+#define TITLEFONTSIZE_ALONE 30      // 只有标题时的字体大小，以后修改为动态计算获得 20180306
+#define DESCRIPTFONTSIZE 15         // 详细内容字体大小
+
 #define PRESENTATION_ANIMATION_DURATION 0.5
-#define DISMISS_ANIMATION_DURATION 0.5
+
 #define PADDING_backgroudView 20.f      // 背景层的右、下边距
 #define PADDING 10.f
-#define TITLEFONTSIZE 20
-#define TITLEFONTSIZE_ALONE 30      // 只有标题时的字体大小，以后修改为动态计算获得 20180306
-#define DESCRIPTFONTSIZE 15
+
 #define DefaultCornerRadius 6.f        // 默认的圆角弧度
 
 @interface RegularSelectPopView() <UITableViewDelegate, UITableViewDataSource>
@@ -190,8 +192,6 @@
     _containerView.alpha = 0;
     _allBackgroudView.alpha = 0;
     
-    // 从下向上滑入
-    //    CGRect oriFrame = CGRectMake(kScreenWidth * 0.5f, kScreenHeight, _backgroudViewWidth, _backgroudViewHeight);
     // 从右向左滑入
     CGRect oriFrame = CGRectMake(kScreenWidth, kStatusBarHeight, _backgroudViewWidth, _backgroudViewHeight);
     _containerView.frame = oriFrame;
@@ -211,7 +211,7 @@
                          // 从下向上滑入
                          self.containerView.frame = CGRectMake(self.backgroudViewWidth - PADDING_backgroudView, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
                      } completion:^(BOOL finished) {
-                         //                         [_pickerView selectRow:row inComponent:component animated:NO];
+                         
                      }];
 }
 
@@ -223,24 +223,14 @@
           initialSpringVelocity:1
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         
-                         //                             _containerView.alpha = 0.0;
                          self.allBackgroudView.alpha = 0.0;
-                         //                             self.alpha = 0.0;
                          
                          // 从左向右滑出
                          CGRect oriFrame = CGRectMake(kScreenWidth, kStatusBarHeight, self.backgroudViewWidth, self.backgroudViewHeight);
                          self.containerView.frame = oriFrame;
-                         
-                         // 从左向右滑出
-                         //                         CGRect oriFrame = CGRectMake(kScreenWidth, self.screenContent_height * 0.33f , kScreenWidth, self.screenContent_height * 0.67f);
-                         //                         _containerView.frame = oriFrame;
-                         
                      }
                      completion:^(BOOL finished) {
-                         
                          [self removeFromSuperview];
-                         
                      }];
 }
 
@@ -316,7 +306,7 @@
         cellHeight = PADDING * 2 + nameSize.height + PADDING * 2 + descriptSize.height + PADDING * 2;
     }
     
-    //    NSLog(@"cell height is :%f", PADDING + nameSize.height + PADDING);
+//    NSLog(@"cell height is :%f", PADDING + nameSize.height + PADDING);
     return cellHeight;
 }
 
@@ -350,7 +340,6 @@
     
     // 被选中时的亮色边框
     //    UIView *selectedBorderView = [[UIView alloc] init];
-    
     
     if([_regularSelectData.data[indexPath.row].decript length] == 0)
     {
@@ -426,23 +415,6 @@
     }
     
     [self dismiss];
-    
-    
-    // 更新_tableview
-    //    if(indexPath.row != self.selectedIndex)
-    //    {
-    //        _cardInfoArr[indexPath.row].isSelected = YES;
-    //        _cardInfoArr[self.selectedIndex].isSelected = NO;
-    //
-    //        NSIndexPath *oriSelected = [NSIndexPath indexPathForItem:self.selectedIndex inSection:indexPath.section];
-    //        NSArray<NSIndexPath *> *tempArr = [NSArray arrayWithObjects:indexPath, oriSelected, nil];
-    //        [tableView reloadRowsAtIndexPaths:tempArr withRowAnimation:UITableViewRowAnimationAutomatic];
-    //    }
-    //
-    //    // 代理方法传值回VC
-    //    [self.delegate chooseBankCardSelectedBankCard:indexPath.row];
-    //
-    //    [self dismiss];
 }
 
 @end
