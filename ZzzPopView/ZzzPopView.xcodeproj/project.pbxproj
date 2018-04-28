@@ -22,7 +22,7 @@
 		5E2DF60E208A24F600E088DB /* ScrollSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60C208A24F600E088DB /* ScrollSelectPopView.m */; };
 		5E2DF611208A254500E088DB /* DataRegularSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60F208A254500E088DB /* DataRegularSelect.m */; };
 		5E2DF619208A25DF00E088DB /* DataScrollSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF618208A25DF00E088DB /* DataScrollSelect.m */; };
-		5E2DF626208A27DF00E088DB /* DataOneRegularSelectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF624208A27DF00E088DB /* DataOneRegularSelectInfo.m */; };
+		5EE88B1020941CB8004C59E2 /* DataOneRegularSelectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE88B0E20941CB7004C59E2 /* DataOneRegularSelectInfo.m */; };
 		5EF61511208A1A0000C7CE85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF61510208A1A0000C7CE85 /* AppDelegate.m */; };
 		5EF61514208A1A0000C7CE85 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF61513208A1A0000C7CE85 /* ViewController.m */; };
 		5EF61517208A1A0000C7CE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EF61515208A1A0000C7CE85 /* Main.storyboard */; };
@@ -66,8 +66,8 @@
 		5E2DF610208A254500E088DB /* DataRegularSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataRegularSelect.h; sourceTree = "<group>"; };
 		5E2DF617208A25DF00E088DB /* DataScrollSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataScrollSelect.h; sourceTree = "<group>"; };
 		5E2DF618208A25DF00E088DB /* DataScrollSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataScrollSelect.m; sourceTree = "<group>"; };
-		5E2DF624208A27DF00E088DB /* DataOneRegularSelectInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DataOneRegularSelectInfo.m; path = ../../../../../Desktop/tempFile/DataOneRegularSelectInfo.m; sourceTree = "<group>"; };
-		5E2DF625208A27DF00E088DB /* DataOneRegularSelectInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DataOneRegularSelectInfo.h; path = ../../../../../Desktop/tempFile/DataOneRegularSelectInfo.h; sourceTree = "<group>"; };
+		5EE88B0E20941CB7004C59E2 /* DataOneRegularSelectInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataOneRegularSelectInfo.m; sourceTree = "<group>"; };
+		5EE88B0F20941CB8004C59E2 /* DataOneRegularSelectInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataOneRegularSelectInfo.h; sourceTree = "<group>"; };
 		5EF6150C208A1A0000C7CE85 /* ZzzPopView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZzzPopView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF6150F208A1A0000C7CE85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5EF61510208A1A0000C7CE85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		5E2DF61E208A27C000E088DB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				5E2DF625208A27DF00E088DB /* DataOneRegularSelectInfo.h */,
-				5E2DF624208A27DF00E088DB /* DataOneRegularSelectInfo.m */,
+				5EE88B0F20941CB8004C59E2 /* DataOneRegularSelectInfo.h */,
+				5EE88B0E20941CB7004C59E2 /* DataOneRegularSelectInfo.m */,
 				5E2DF610208A254500E088DB /* DataRegularSelect.h */,
 				5E2DF60F208A254500E088DB /* DataRegularSelect.m */,
 			);
@@ -295,13 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2DF601208A1BA300E088DB /* MASConstraintMaker.m in Sources */,
-				5E2DF626208A27DF00E088DB /* DataOneRegularSelectInfo.m in Sources */,
 				5EF61514208A1A0000C7CE85 /* ViewController.m in Sources */,
 				5E2DF5FF208A1BA300E088DB /* ViewController+MASAdditions.m in Sources */,
 				5E2DF606208A1BA300E088DB /* MASViewConstraint.m in Sources */,
 				5EF6151F208A1A0100C7CE85 /* main.m in Sources */,
 				5E2DF602208A1BA300E088DB /* MASLayoutConstraint.m in Sources */,
 				5E2DF605208A1BA300E088DB /* MASConstraint.m in Sources */,
+				5EE88B1020941CB8004C59E2 /* DataOneRegularSelectInfo.m in Sources */,
 				5E2DF619208A25DF00E088DB /* DataScrollSelect.m in Sources */,
 				5E2DF603208A1BA300E088DB /* NSArray+MASAdditions.m in Sources */,
 				5EF61511208A1A0000C7CE85 /* AppDelegate.m in Sources */,
