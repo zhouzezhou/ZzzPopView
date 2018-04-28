@@ -138,90 +138,96 @@
         
         
         // 底部按钮：上一个、完成、下一个
-        // 上一个
-        UIButton *priviousBtn = [[UIButton alloc] init];
-        [priviousBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [priviousBtn setBackgroundColor:[UIColor whiteColor]];
-        [priviousBtn.layer setCornerRadius:4.0f];
-        [priviousBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
-        [priviousBtn setTitle:@"上一个" forState:UIControlStateNormal];
-        [priviousBtn addTarget:self action:@selector(btnClick_priviousBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [backgroudView addSubview:priviousBtn];
-        
-        [priviousBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(backgroudView.mas_left).with.offset(paddingLeft);
-            //                    make.right.mas_equalTo(backgroudView.mas_right).with.offset(-UI_PaddingLeft);
-            //                    make.top.mas_equalTo(backgroudView.mas_top);
-            make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
-        }];
+
         
         // 根据要求显示或隐藏按钮
         if(data.isShowPriviouBtn)
         {
+            // 上一个
+            UIButton *priviousBtn = [[UIButton alloc] init];
+            [priviousBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [priviousBtn setBackgroundColor:[UIColor whiteColor]];
+            [priviousBtn.layer setCornerRadius:4.0f];
+            [priviousBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
+            [priviousBtn setTitle:@"上一个" forState:UIControlStateNormal];
+            [priviousBtn addTarget:self action:@selector(btnClick_priviousBtn:) forControlEvents:UIControlEventTouchUpInside];
+            [backgroudView addSubview:priviousBtn];
+            
+            [priviousBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(backgroudView.mas_left).with.offset(paddingLeft);
+                //                    make.right.mas_equalTo(backgroudView.mas_right).with.offset(-UI_PaddingLeft);
+                //                    make.top.mas_equalTo(backgroudView.mas_top);
+                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
+            }];
+            
             [priviousBtn setHidden:NO];
         }
-        else
-        {
-            [priviousBtn setHidden:YES];
-        }
+//        else
+//        {
+//            [priviousBtn setHidden:YES];
+//        }
         
         
-        // 完成
-        UIButton *confirmBtn = [[UIButton alloc] init];
-        [confirmBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [confirmBtn setBackgroundColor:[UIColor whiteColor]];
-        [confirmBtn.layer setCornerRadius:4.0f];
-        [confirmBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
-        [confirmBtn setTitle:@"完成" forState:UIControlStateNormal];
-        [backgroudView addSubview:confirmBtn];
-        
-        [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.mas_equalTo(backgroudView);
-            //                    make.left.mas_equalTo(backgroudView.mas_left).with.offset(10.f);
-            //                    make.right.mas_equalTo(backgroudView.mas_right).with.offset(-UI_PaddingLeft);
-            //                    make.top.mas_equalTo(backgroudView.mas_top);
-            make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
-        }];
-        
-        [confirmBtn addTarget:self action:@selector(btnClick_confirm:) forControlEvents:UIControlEventTouchUpInside];
+
         
         // 根据要求显示或隐藏按钮
         if(data.isShowConfirmBtn)
         {
+            // 完成
+            UIButton *confirmBtn = [[UIButton alloc] init];
+            [confirmBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [confirmBtn setBackgroundColor:[UIColor whiteColor]];
+            [confirmBtn.layer setCornerRadius:4.0f];
+            [confirmBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
+            [confirmBtn setTitle:@"完成" forState:UIControlStateNormal];
+            [backgroudView addSubview:confirmBtn];
+            
+            [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.mas_equalTo(backgroudView);
+                //                    make.left.mas_equalTo(backgroudView.mas_left).with.offset(10.f);
+                //                    make.right.mas_equalTo(backgroudView.mas_right).with.offset(-UI_PaddingLeft);
+                //                    make.top.mas_equalTo(backgroudView.mas_top);
+                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
+            }];
+            
+            [confirmBtn addTarget:self action:@selector(btnClick_confirm:) forControlEvents:UIControlEventTouchUpInside];
+            
             [confirmBtn setHidden:NO];
         }
-        else
-        {
-            [confirmBtn setHidden:YES];
-        }
+//        else
+//        {
+//            [confirmBtn setHidden:YES];
+//        }
         
-        // 下一个
-        UIButton *nextBtn = [[UIButton alloc] init];
-        [nextBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [nextBtn setBackgroundColor:[UIColor whiteColor]];
-        [nextBtn.layer setCornerRadius:4.0f];
-        [nextBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
-        [nextBtn setTitle:@"下一个" forState:UIControlStateNormal];
-        [nextBtn addTarget:self action:@selector(btnClick_nextBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [backgroudView addSubview:nextBtn];
-        
-        [nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            //                    make.left.mas_equalTo(backgroudView.mas_left).with.offset(10.f);
-            make.right.mas_equalTo(backgroudView.mas_right).with.offset(-paddingLeft);
-            //                    make.top.mas_equalTo(backgroudView.mas_top);
-            make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
-        }];
+
         
         
         // 根据要求显示或隐藏按钮
         if(data.isShowNextBtn)
         {
+            // 下一个
+            UIButton *nextBtn = [[UIButton alloc] init];
+            [nextBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [nextBtn setBackgroundColor:[UIColor whiteColor]];
+            [nextBtn.layer setCornerRadius:4.0f];
+            [nextBtn.titleLabel setFont:[UIFont systemFontOfSize:btnFontSize]];
+            [nextBtn setTitle:@"下一个" forState:UIControlStateNormal];
+            [nextBtn addTarget:self action:@selector(btnClick_nextBtn:) forControlEvents:UIControlEventTouchUpInside];
+            [backgroudView addSubview:nextBtn];
+            
+            [nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                //                    make.left.mas_equalTo(backgroudView.mas_left).with.offset(10.f);
+                make.right.mas_equalTo(backgroudView.mas_right).with.offset(-paddingLeft);
+                //                    make.top.mas_equalTo(backgroudView.mas_top);
+                make.bottom.mas_equalTo(backgroudView.mas_bottom).with.offset(-paddingLeft);
+            }];
+            
             [nextBtn setHidden:NO];
         }
-        else
-        {
-            [nextBtn setHidden:YES];
-        }
+//        else
+//        {
+//            [nextBtn setHidden:YES];
+//        }
     }
     return self;
 }
