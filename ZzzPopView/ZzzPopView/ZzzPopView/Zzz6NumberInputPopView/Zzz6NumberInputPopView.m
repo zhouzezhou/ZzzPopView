@@ -252,7 +252,9 @@
     }
     else
     {
+        _containerView.alpha = 0;
         _allBackgroudView.alpha = 0;
+        
         // 从右向左滑入
         CGRect oriFrame = CGRectMake(SCREEN_WIDTH, SCREEN_HEIGHT * 0.54f , SCREEN_WIDTH, SCREEN_HEIGHT * 0.46f);
         _containerView.frame = oriFrame;
@@ -265,6 +267,9 @@
               initialSpringVelocity:1
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
+                             self.containerView.alpha = 1.0f;
+                             self.allBackgroudView.alpha = 0.6f;
+                             
                              // 从右向左滑入
                              self.containerView.frame = CGRectMake(0, SCREEN_HEIGHT * 0.54f , SCREEN_WIDTH, SCREEN_HEIGHT * 0.46f);
                          } completion:^(BOOL finished) {
@@ -300,6 +305,8 @@
               initialSpringVelocity:1
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
+                             self.allBackgroudView.alpha = 0.0;
+                             
                              // 从左向右滑出
                              CGRect oriFrame = CGRectMake(SCREEN_WIDTH, SCREEN_HEIGHT * 0.54f , SCREEN_WIDTH, SCREEN_HEIGHT * 0.46f);
                              self.containerView.frame = oriFrame;

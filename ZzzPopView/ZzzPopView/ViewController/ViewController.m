@@ -190,7 +190,7 @@
 {
     // 弹出支付密码输入界面popview
     NSString *hintText = @"需要验证您的支付密码";
-    Zzz6NumberInputPopView *popView = [Zzz6NumberInputPopView messagePopviewWithBtnTitle:@"确定" popViewTitle:@"支付密码" popVuewDescrption:@"请输入支付密码" hintText:hintText isSecureTextEntry:NO];
+    Zzz6NumberInputPopView *popView = [Zzz6NumberInputPopView messagePopviewWithBtnTitle:@"确定" popViewTitle:@"支付密码" popVuewDescrption:@"请输入支付密码" hintText:hintText isSecureTextEntry:YES];
     popView.delegate = self;
     [popView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
 }
