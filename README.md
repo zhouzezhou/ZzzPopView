@@ -2,7 +2,7 @@
 各种功能的Popview，包括：
 - **纵向长条pickerview的Popview**：文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 - **纵向TableView的Popview**：文本显示内容，包括标题和详细内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
-- **6位数输入Popview**：未完成
+- **6位数输入Popview**：6位数字输入的popview,当然你也可以在源码里方便的改写成其它位数，提供了明文输入和密码输入两种方式，popview上的文字都可以创建方法中自定义，一个popview解决多种使用场景。
 - **银行卡选择Popview**：未完成
 
 
@@ -107,5 +107,38 @@ regularSelectPopView_body.delegate = self;
 
 // 立即显示PopView(在需要显示的时候调用)
 [regularSelectPopView_body showInView:[UIApplication sharedApplication].keyWindow];
+```
+
+### 6位数输入Popview
+
+6位数字输入的popview，当然你也可以在源码里方便的改写成其它位数。
+
+提供了明文输入和密（暗）文输入两种方式，密（暗）文输入时可对数字位置进行打乱，防止他人窥屏时记住用户的密码输入顺序造成安全风险。
+
+popview上的文字都可以创建方法中自定义。
+
+点击选择器之外的空间隐藏Popview。
+
+一个popview解决多种使用场景。
+
+效果预览：
+![Markdown](http://i1.bvimg.com/603144/19726400ece3232f.png)
+
+使用方法：
+```
+// 导入头文件
+#import "Zzz6NumberInputPopView.h"
+
+// 假设使用场景为支付密码输入
+// 创建popview
+Zzz6NumberInputPopView *popView = [Zzz6NumberInputPopView messagePopviewWithBtnTitle:@"确定" popViewTitle:@"支付密码" popVuewDescrption:@"请输入支付密码" hintText:@"需要验证您的支付密码" isSecureTextEntry:YES];
+
+// 设置代理，接收用户交互的回调
+popView.delegate = self;
+
+// 立即显示PopView(在需要显示的时候调用)
+[popView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
+
+
 ```
 
