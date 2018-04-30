@@ -22,6 +22,8 @@
 		5E2DF60E208A24F600E088DB /* ScrollSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60C208A24F600E088DB /* ScrollSelectPopView.m */; };
 		5E2DF611208A254500E088DB /* DataRegularSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60F208A254500E088DB /* DataRegularSelect.m */; };
 		5E2DF619208A25DF00E088DB /* DataScrollSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF618208A25DF00E088DB /* DataScrollSelect.m */; };
+		5ECFD56E2096F848004ECD6A /* Zzz6NumberInputPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECFD56D2096F848004ECD6A /* Zzz6NumberInputPopView.m */; };
+		5ECFD5722096FFDA004ECD6A /* XTYRandomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECFD5712096FFDA004ECD6A /* XTYRandomKeyboard.m */; };
 		5EE88B1020941CB8004C59E2 /* DataOneRegularSelectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE88B0E20941CB7004C59E2 /* DataOneRegularSelectInfo.m */; };
 		5EF61511208A1A0000C7CE85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF61510208A1A0000C7CE85 /* AppDelegate.m */; };
 		5EF61514208A1A0000C7CE85 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF61513208A1A0000C7CE85 /* ViewController.m */; };
@@ -66,6 +68,10 @@
 		5E2DF610208A254500E088DB /* DataRegularSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataRegularSelect.h; sourceTree = "<group>"; };
 		5E2DF617208A25DF00E088DB /* DataScrollSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataScrollSelect.h; sourceTree = "<group>"; };
 		5E2DF618208A25DF00E088DB /* DataScrollSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataScrollSelect.m; sourceTree = "<group>"; };
+		5ECFD56C2096F848004ECD6A /* Zzz6NumberInputPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zzz6NumberInputPopView.h; sourceTree = "<group>"; };
+		5ECFD56D2096F848004ECD6A /* Zzz6NumberInputPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zzz6NumberInputPopView.m; sourceTree = "<group>"; };
+		5ECFD5702096FFDA004ECD6A /* XTYRandomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTYRandomKeyboard.h; sourceTree = "<group>"; };
+		5ECFD5712096FFDA004ECD6A /* XTYRandomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTYRandomKeyboard.m; sourceTree = "<group>"; };
 		5EE88B0E20941CB7004C59E2 /* DataOneRegularSelectInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataOneRegularSelectInfo.m; sourceTree = "<group>"; };
 		5EE88B0F20941CB8004C59E2 /* DataOneRegularSelectInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataOneRegularSelectInfo.h; sourceTree = "<group>"; };
 		5EF6150C208A1A0000C7CE85 /* ZzzPopView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZzzPopView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,36 +130,55 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		5E2DF615208A259500E088DB /* ZzzRegularSelectPopView */ = {
+		5ECFD5602096F734004ECD6A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5E2DF609208A24F600E088DB /* RegularSelectPopView.h */,
-				5E2DF60B208A24F600E088DB /* RegularSelectPopView.m */,
-				5E2DF61E208A27C000E088DB /* Data */,
+				5EF61512208A1A0000C7CE85 /* ViewController.h */,
+				5EF61513208A1A0000C7CE85 /* ViewController.m */,
 			);
-			name = ZzzRegularSelectPopView;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		5E2DF616208A25B100E088DB /* ZzzStripScrollSelectPopView */ = {
+		5ECFD5612096F749004ECD6A /* ZzzPopView */ = {
+			isa = PBXGroup;
+			children = (
+				5ECFD5682096F7DD004ECD6A /* Zzz6NumberInputPopView */,
+				5ECFD5652096F79D004ECD6A /* ZzzRegularSelectPopView */,
+				5ECFD5632096F75C004ECD6A /* ZzzStripScrollSelectPopView */,
+			);
+			path = ZzzPopView;
+			sourceTree = "<group>";
+		};
+		5ECFD5632096F75C004ECD6A /* ZzzStripScrollSelectPopView */ = {
 			isa = PBXGroup;
 			children = (
 				5E2DF60A208A24F600E088DB /* ScrollSelectPopView.h */,
 				5E2DF60C208A24F600E088DB /* ScrollSelectPopView.m */,
-				5E2DF61D208A27B500E088DB /* Data */,
+				5ECFD5642096F77A004ECD6A /* Data */,
 			);
-			name = ZzzStripScrollSelectPopView;
+			path = ZzzStripScrollSelectPopView;
 			sourceTree = "<group>";
 		};
-		5E2DF61D208A27B500E088DB /* Data */ = {
+		5ECFD5642096F77A004ECD6A /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				5E2DF617208A25DF00E088DB /* DataScrollSelect.h */,
 				5E2DF618208A25DF00E088DB /* DataScrollSelect.m */,
 			);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		5E2DF61E208A27C000E088DB /* Data */ = {
+		5ECFD5652096F79D004ECD6A /* ZzzRegularSelectPopView */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DF609208A24F600E088DB /* RegularSelectPopView.h */,
+				5E2DF60B208A24F600E088DB /* RegularSelectPopView.m */,
+				5ECFD5662096F7A2004ECD6A /* Data */,
+			);
+			path = ZzzRegularSelectPopView;
+			sourceTree = "<group>";
+		};
+		5ECFD5662096F7A2004ECD6A /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				5EE88B0F20941CB8004C59E2 /* DataOneRegularSelectInfo.h */,
@@ -161,16 +186,40 @@
 				5E2DF610208A254500E088DB /* DataRegularSelect.h */,
 				5E2DF60F208A254500E088DB /* DataRegularSelect.m */,
 			);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		5E76F723208A1B1000F1771F /* ZzzPopView */ = {
+		5ECFD5682096F7DD004ECD6A /* Zzz6NumberInputPopView */ = {
 			isa = PBXGroup;
 			children = (
-				5E2DF616208A25B100E088DB /* ZzzStripScrollSelectPopView */,
-				5E2DF615208A259500E088DB /* ZzzRegularSelectPopView */,
+				5ECFD56C2096F848004ECD6A /* Zzz6NumberInputPopView.h */,
+				5ECFD56D2096F848004ECD6A /* Zzz6NumberInputPopView.m */,
+				5ECFD56F2096FFD3004ECD6A /* XTYRandomKeyboard */,
 			);
-			name = ZzzPopView;
+			path = Zzz6NumberInputPopView;
+			sourceTree = "<group>";
+		};
+		5ECFD56F2096FFD3004ECD6A /* XTYRandomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5ECFD5702096FFDA004ECD6A /* XTYRandomKeyboard.h */,
+				5ECFD5712096FFDA004ECD6A /* XTYRandomKeyboard.m */,
+			);
+			path = XTYRandomKeyboard;
+			sourceTree = "<group>";
+		};
+		5ECFD57320970228004ECD6A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DF5E3208A1BA300E088DB /* Masonry */,
+				5EF61515208A1A0000C7CE85 /* Main.storyboard */,
+				5EF6150F208A1A0000C7CE85 /* AppDelegate.h */,
+				5EF61510208A1A0000C7CE85 /* AppDelegate.m */,
+				5EF6151A208A1A0100C7CE85 /* LaunchScreen.storyboard */,
+				5EF6151D208A1A0100C7CE85 /* Info.plist */,
+				5EF6151E208A1A0100C7CE85 /* main.m */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		5EF61503208A1A0000C7CE85 = {
@@ -193,34 +242,11 @@
 		5EF6150E208A1A0000C7CE85 /* ZzzPopView */ = {
 			isa = PBXGroup;
 			children = (
-				5EF61527208A1A6F00C7CE85 /* ViewController */,
-				5E76F723208A1B1000F1771F /* ZzzPopView */,
-				5EF61528208A1A8300C7CE85 /* Other */,
+				5ECFD5602096F734004ECD6A /* ViewController */,
+				5ECFD5612096F749004ECD6A /* ZzzPopView */,
+				5ECFD57320970228004ECD6A /* Supporting Files */,
 			);
 			path = ZzzPopView;
-			sourceTree = "<group>";
-		};
-		5EF61527208A1A6F00C7CE85 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5EF61512208A1A0000C7CE85 /* ViewController.h */,
-				5EF61513208A1A0000C7CE85 /* ViewController.m */,
-			);
-			name = ViewController;
-			sourceTree = "<group>";
-		};
-		5EF61528208A1A8300C7CE85 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				5E2DF5E3208A1BA300E088DB /* Masonry */,
-				5EF61515208A1A0000C7CE85 /* Main.storyboard */,
-				5EF6150F208A1A0000C7CE85 /* AppDelegate.h */,
-				5EF61510208A1A0000C7CE85 /* AppDelegate.m */,
-				5EF6151A208A1A0100C7CE85 /* LaunchScreen.storyboard */,
-				5EF6151D208A1A0100C7CE85 /* Info.plist */,
-				5EF6151E208A1A0100C7CE85 /* main.m */,
-			);
-			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +325,7 @@
 				5E2DF5FF208A1BA300E088DB /* ViewController+MASAdditions.m in Sources */,
 				5E2DF606208A1BA300E088DB /* MASViewConstraint.m in Sources */,
 				5EF6151F208A1A0100C7CE85 /* main.m in Sources */,
+				5ECFD56E2096F848004ECD6A /* Zzz6NumberInputPopView.m in Sources */,
 				5E2DF602208A1BA300E088DB /* MASLayoutConstraint.m in Sources */,
 				5E2DF605208A1BA300E088DB /* MASConstraint.m in Sources */,
 				5EE88B1020941CB8004C59E2 /* DataOneRegularSelectInfo.m in Sources */,
@@ -306,6 +333,7 @@
 				5E2DF603208A1BA300E088DB /* NSArray+MASAdditions.m in Sources */,
 				5EF61511208A1A0000C7CE85 /* AppDelegate.m in Sources */,
 				5E2DF60E208A24F600E088DB /* ScrollSelectPopView.m in Sources */,
+				5ECFD5722096FFDA004ECD6A /* XTYRandomKeyboard.m in Sources */,
 				5E2DF611208A254500E088DB /* DataRegularSelect.m in Sources */,
 				5E2DF600208A1BA300E088DB /* MASCompositeConstraint.m in Sources */,
 				5E2DF604208A1BA300E088DB /* View+MASAdditions.m in Sources */,
@@ -453,7 +481,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB29T9LDGP;
-				INFOPLIST_FILE = ZzzPopView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ZzzPopView/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,7 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB29T9LDGP;
-				INFOPLIST_FILE = ZzzPopView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ZzzPopView/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

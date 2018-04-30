@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ScrollSelectPopView.h"
 #import "RegularSelectPopView.h"
+#import "Zzz6NumberInputPopView.h"
 
 // 屏幕的宽度
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -18,7 +19,7 @@
 #define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 
 
-@interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate>
+@interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate, Zzz6NumberInputPopViewDelegate>
 
 @property (nonatomic, strong) UILabel *displayLabel;    // 打印信息
 
@@ -40,7 +41,6 @@
     [self configView];
     
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -161,6 +161,13 @@
     [stripScrollSelectBtn.layer setCornerRadius:4.f];
     [stripScrollSelectBtn addTarget:self action:@selector(StripScrollSelectBtnBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:stripScrollSelectBtn];
+    
+    UIButton *zzz6NumberInputPopViewBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - (44.f + 10) * 3, kScreenWidth - 20, 44.f)];
+    [zzz6NumberInputPopViewBtn setTitle:@"zzz6NumberInputPopViewBtn" forState:UIControlStateNormal];
+    [zzz6NumberInputPopViewBtn setBackgroundColor:[UIColor orangeColor]];
+    [zzz6NumberInputPopViewBtn.layer setCornerRadius:4.f];
+    [zzz6NumberInputPopViewBtn addTarget:self action:@selector(Zzz6NumberInputPopViewBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:zzz6NumberInputPopViewBtn];
 }
 
 -(void) setLogText:(NSString *) text
@@ -177,6 +184,15 @@
 -(void) StripScrollSelectBtnBtnClick:(UIButton *) sender
 {
     [_scrollSelectPopView_motion showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+-(void) Zzz6NumberInputPopViewBtnClick
+{
+    // 弹出支付密码输入界面popview
+    NSString *hintText = @"需要验证您的支付密码";
+    Zzz6NumberInputPopView *popView = [Zzz6NumberInputPopView messagePopviewWithBtnTitle:@"确定" popViewTitle:@"支付密码" popVuewDescrption:@"请输入支付密码" hintText:hintText isSecureTextEntry:NO];
+    popView.delegate = self;
+    [popView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
 }
 
 #pragma mark - Protocol RegularSelectPopViewDelegate
@@ -260,6 +276,18 @@
         NSLog(@"%@", [NSString stringWithFormat:@"scrollSelectPopView itemIndex is :%ld", (long)itemIndex]);
         [self setLogText:[NSString stringWithFormat:@"scrollSelectPopView itemIndex is :%ld", (long)itemIndex]];
     }
+}
+
+#pragma mark - NumberInputLength6PopView Delegate
+
+-(void) Zzz6NumberInputPopViewClickConfirmBtnWithMSG:(NSString *)msg
+{
+    NSLog(@"input number is %@:" ,msg);
+}
+
+-(void) Zzz6NumberInputPopViewClickCancelBtn
+{
+    NSLog(@"NumberInputLength6PopViewClickCancelBtn");
 }
 
 
