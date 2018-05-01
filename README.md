@@ -3,11 +3,11 @@
 - **纵向长条pickerview的Popview**：文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 - **纵向TableView的Popview**：文本显示内容，包括标题和详细内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 - **6位数输入Popview**：6位数字输入的popview,当然你也可以在源码里方便的改写成其它位数，提供了明文输入和密码输入两种方式，popview上的文字都可以创建方法中自定义，一个popview解决多种使用场景。
-- **银行卡选择Popview**：未完成
+- **银行卡选择Popview**：选择银行卡的popview，支付系统里经常会用到。
 
 
 - - - 
-### 纵向长条pickerview的Popview
+### 纵向长条pickerview的
 
 文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 
@@ -109,11 +109,12 @@ regularSelectPopView_body.delegate = self;
 [regularSelectPopView_body showInView:[UIApplication sharedApplication].keyWindow];
 ```
 
+- - - 
 ### 6位数输入Popview
 
 6位数字输入的popview，当然你也可以在源码里方便的改写成其它位数。
 
-提供了明文输入和密（暗）文输入两种方式，密（暗）文输入时可对数字位置进行打乱，防止他人窥屏时记住用户的密码输入顺序造成安全风险。
+提供了明文输入和密（暗）文输入两种方式，密（暗）文输入时可对数字位置进行打乱，防止他人窥屏时记住用户的密码输入顺序对安全造成风险。
 
 popview上的文字都可以创建方法中自定义。
 
@@ -139,6 +140,23 @@ popView.delegate = self;
 // 立即显示PopView(在需要显示的时候调用)
 [popView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
 
+
+```
+
+- - - 
+### 银行卡选择Popview
+
+选择银行卡的popview，支付系统里经常会用到。
+
+传入银行卡的数据，弹出popview，以Tableview的形式让用户需要使用哪一张银行卡。
+
+
+
+效果预览：
+![Markdown](http://i1.bvimg.com/603144/19726400ece3232f.png)
+
+使用方法：
+```
 
 ```
 

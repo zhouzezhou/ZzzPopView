@@ -10,6 +10,7 @@
 #import "ScrollSelectPopView.h"
 #import "RegularSelectPopView.h"
 #import "Zzz6NumberInputPopView.h"
+#import "ZzzBankCardChoosePopView.h"
 
 // 屏幕的宽度
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -19,7 +20,7 @@
 #define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 
 
-@interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate, Zzz6NumberInputPopViewDelegate>
+@interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate, Zzz6NumberInputPopViewDelegate, ZzzBankCardChoosePopViewDelegate>
 
 @property (nonatomic, strong) UILabel *displayLabel;    // 打印信息
 
@@ -29,6 +30,8 @@
 @property (nonatomic, strong) ScrollSelectPopView *scrollSelectPopView_motion;      // 选择动作的PopView
 @property (nonatomic, strong) DataScrollSelect *selectData_motion;                  // 选择动作的PopView里的显示数据
 
+@property (nonatomic, strong) NSMutableArray<DataBankCardInfo *> *cardInfoArr;       // 银行卡信息数组
+@property (nonatomic, strong) ZzzBankCardChoosePopView *zzzBankCardChoosePopView;    // 银行卡选择Popview
 @end
 
 @implementation ViewController
@@ -53,6 +56,9 @@
     [self configRegularPopView];
     
     [self configStripScrollPopView];
+    
+    [self configBankCardPopView];
+    
 }
 
 -(void) configRegularPopView
@@ -139,9 +145,60 @@
     _scrollSelectPopView_motion.delegate = self;
 }
 
+-(void) configBankCardPopView
+{
+    // 随便弄点测试数据
+    self.cardInfoArr = [NSMutableArray array];
+    
+    DataBankCardInfo *card1 = [[DataBankCardInfo alloc] init];
+    card1.logoNamed = @"AppIcon";
+    card1.isSelected = NO;
+    card1.bankCardNumber = @"612345678901234000";
+    card1.bankName = @"中国工商银行";
+    [self.cardInfoArr addObject:card1];
+    
+    DataBankCardInfo *card2 = [[DataBankCardInfo alloc] init];
+    card2.logoNamed = @"AppIcon";
+    card2.isSelected = NO;
+    card2.bankCardNumber = @"612345678901234123";
+    card2.bankName = @"中国建设银行";
+    [self.cardInfoArr addObject:card2];
+    
+    DataBankCardInfo *card3 = [[DataBankCardInfo alloc] init];
+    card3.logoNamed = @"AppIcon";
+    card3.isSelected = YES;
+    card3.bankCardNumber = @"612345678901234456";
+    card3.bankName = @"中国人民银行";
+    [self.cardInfoArr addObject:card3];
+    
+    DataBankCardInfo *card4 = [[DataBankCardInfo alloc] init];
+    card4.logoNamed = @"AppIcon";
+    card4.isSelected = NO;
+    card4.bankCardNumber = @"612345678901234789";
+    card4.bankName = @"中国农业银行";
+    [self.cardInfoArr addObject:card4];
+    
+    DataBankCardInfo *card5 = [[DataBankCardInfo alloc] init];
+    card5.logoNamed = @"AppIcon";
+    card5.isSelected = NO;
+    card5.bankCardNumber = @"612345678901234111";
+    card5.bankName = @"中国邮政储蓄银行";
+    [self.cardInfoArr addObject:card5];
+    
+    DataBankCardInfo *card6 = [[DataBankCardInfo alloc] init];
+    card6.logoNamed = @"AppIcon";
+    card6.isSelected = NO;
+    card6.bankCardNumber = @"612345678901234222";
+    card6.bankName = @"中国光大银行";
+    [self.cardInfoArr addObject:card6];
+    
+    self.zzzBankCardChoosePopView = [ZzzBankCardChoosePopView popviewWithCardBankData:self.cardInfoArr];
+    self.zzzBankCardChoosePopView.delegate = self;
+}
+
 -(void) configView
 {
-    _displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kStatusBarHeight + 10, kScreenWidth - 20, kScreenHeight - 44.f - 10 - 44.f - 10 - 10 - kStatusBarHeight - 10)];
+    _displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kStatusBarHeight + 10, kScreenWidth - 20, kScreenHeight - ((44.f + 10) * 4)  - 10 - kStatusBarHeight - 10)];
     [_displayLabel setNumberOfLines:0];
     [_displayLabel setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [_displayLabel setText:@"日志:"];
@@ -149,25 +206,32 @@
     [self.view addSubview:_displayLabel];
     
     UIButton *RegularSelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - 44.f - 10, kScreenWidth - 20, 44.f)];
-    [RegularSelectBtn setTitle:@"RegularSelectPopView" forState:UIControlStateNormal];
+    [RegularSelectBtn setTitle:@"纵向长条pickerview的" forState:UIControlStateNormal];
     [RegularSelectBtn setBackgroundColor:[UIColor orangeColor]];
     [RegularSelectBtn.layer setCornerRadius:4.f];
     [RegularSelectBtn addTarget:self action:@selector(RegularSelectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:RegularSelectBtn];
     
-    UIButton *stripScrollSelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - 44.f - 10 - 44.f - 10, kScreenWidth - 20, 44.f)];
-    [stripScrollSelectBtn setTitle:@"StripScrollSelectBtn" forState:UIControlStateNormal];
+    UIButton *stripScrollSelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - (44.f + 10) * 2, kScreenWidth - 20, 44.f)];
+    [stripScrollSelectBtn setTitle:@"纵向TableView的Popview" forState:UIControlStateNormal];
     [stripScrollSelectBtn setBackgroundColor:[UIColor orangeColor]];
     [stripScrollSelectBtn.layer setCornerRadius:4.f];
     [stripScrollSelectBtn addTarget:self action:@selector(StripScrollSelectBtnBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:stripScrollSelectBtn];
     
     UIButton *zzz6NumberInputPopViewBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - (44.f + 10) * 3, kScreenWidth - 20, 44.f)];
-    [zzz6NumberInputPopViewBtn setTitle:@"zzz6NumberInputPopViewBtn" forState:UIControlStateNormal];
+    [zzz6NumberInputPopViewBtn setTitle:@"6位数输入Popview" forState:UIControlStateNormal];
     [zzz6NumberInputPopViewBtn setBackgroundColor:[UIColor orangeColor]];
     [zzz6NumberInputPopViewBtn.layer setCornerRadius:4.f];
     [zzz6NumberInputPopViewBtn addTarget:self action:@selector(Zzz6NumberInputPopViewBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:zzz6NumberInputPopViewBtn];
+    
+    UIButton *ZzzBankCardChoosePopViewBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - (44.f + 10) * 4, kScreenWidth - 20, 44.f)];
+    [ZzzBankCardChoosePopViewBtn setTitle:@"银行卡选择Popview" forState:UIControlStateNormal];
+    [ZzzBankCardChoosePopViewBtn setBackgroundColor:[UIColor orangeColor]];
+    [ZzzBankCardChoosePopViewBtn.layer setCornerRadius:4.f];
+    [ZzzBankCardChoosePopViewBtn addTarget:self action:@selector(ZzzBankCardChoosePopViewBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:ZzzBankCardChoosePopViewBtn];
 }
 
 -(void) setLogText:(NSString *) text
@@ -193,6 +257,11 @@
     Zzz6NumberInputPopView *popView = [Zzz6NumberInputPopView messagePopviewWithBtnTitle:@"确定" popViewTitle:@"支付密码" popVuewDescrption:@"请输入支付密码" hintText:hintText isSecureTextEntry:YES];
     popView.delegate = self;
     [popView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
+}
+
+-(void) ZzzBankCardChoosePopViewBtnClick
+{
+    [self.zzzBankCardChoosePopView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
 }
 
 #pragma mark - Protocol RegularSelectPopViewDelegate
@@ -290,5 +359,20 @@
     NSLog(@"NumberInputLength6PopViewClickCancelBtn");
 }
 
+#pragma mark - ZzzBankCardChoosePopView Delegate
+- (void) zzzBankCardChoosePopViewClickConfirmBtn
+{
+    [self setLogText:@"zzzBankCardChoosePopViewClickConfirmBtn"];
+}
+
+- (void) zzzBankCardChoosePopViewClickCancelBtn
+{
+    [self setLogText:@"zzzBankCardChoosePopViewClickCancelBtn"];
+}
+
+-(void) zzzBankCardChoosePopViewSelectedBankCard:(NSInteger) index
+{
+    [self setLogText:[NSString stringWithFormat:@"zzzBankCardChoosePopViewSelectedBankCard itemIndex is :%ld", (long)index]];
+}
 
 @end

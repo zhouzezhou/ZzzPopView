@@ -22,6 +22,8 @@
 		5E2DF60E208A24F600E088DB /* ScrollSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60C208A24F600E088DB /* ScrollSelectPopView.m */; };
 		5E2DF611208A254500E088DB /* DataRegularSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60F208A254500E088DB /* DataRegularSelect.m */; };
 		5E2DF619208A25DF00E088DB /* DataScrollSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF618208A25DF00E088DB /* DataScrollSelect.m */; };
+		5E3A3E4020988C7A0043925B /* ZzzBankCardChoosePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A3E3F20988C7A0043925B /* ZzzBankCardChoosePopView.m */; };
+		5E3A3E44209893BE0043925B /* DataBankCardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A3E42209893BD0043925B /* DataBankCardInfo.m */; };
 		5ECFD56E2096F848004ECD6A /* Zzz6NumberInputPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECFD56D2096F848004ECD6A /* Zzz6NumberInputPopView.m */; };
 		5ECFD5722096FFDA004ECD6A /* XTYRandomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECFD5712096FFDA004ECD6A /* XTYRandomKeyboard.m */; };
 		5EE88B1020941CB8004C59E2 /* DataOneRegularSelectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE88B0E20941CB7004C59E2 /* DataOneRegularSelectInfo.m */; };
@@ -68,6 +70,10 @@
 		5E2DF610208A254500E088DB /* DataRegularSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataRegularSelect.h; sourceTree = "<group>"; };
 		5E2DF617208A25DF00E088DB /* DataScrollSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataScrollSelect.h; sourceTree = "<group>"; };
 		5E2DF618208A25DF00E088DB /* DataScrollSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataScrollSelect.m; sourceTree = "<group>"; };
+		5E3A3E3E20988C7A0043925B /* ZzzBankCardChoosePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZzzBankCardChoosePopView.h; sourceTree = "<group>"; };
+		5E3A3E3F20988C7A0043925B /* ZzzBankCardChoosePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZzzBankCardChoosePopView.m; sourceTree = "<group>"; };
+		5E3A3E42209893BD0043925B /* DataBankCardInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBankCardInfo.m; sourceTree = "<group>"; };
+		5E3A3E43209893BE0043925B /* DataBankCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBankCardInfo.h; sourceTree = "<group>"; };
 		5ECFD56C2096F848004ECD6A /* Zzz6NumberInputPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zzz6NumberInputPopView.h; sourceTree = "<group>"; };
 		5ECFD56D2096F848004ECD6A /* Zzz6NumberInputPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zzz6NumberInputPopView.m; sourceTree = "<group>"; };
 		5ECFD5702096FFDA004ECD6A /* XTYRandomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTYRandomKeyboard.h; sourceTree = "<group>"; };
@@ -130,6 +136,25 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		5E3A3E3D20988A3A0043925B /* ZzzBankCardChoosePopView */ = {
+			isa = PBXGroup;
+			children = (
+				5E3A3E3E20988C7A0043925B /* ZzzBankCardChoosePopView.h */,
+				5E3A3E3F20988C7A0043925B /* ZzzBankCardChoosePopView.m */,
+				5E3A3E4120988CD30043925B /* Data */,
+			);
+			path = ZzzBankCardChoosePopView;
+			sourceTree = "<group>";
+		};
+		5E3A3E4120988CD30043925B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5E3A3E43209893BE0043925B /* DataBankCardInfo.h */,
+				5E3A3E42209893BD0043925B /* DataBankCardInfo.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		5ECFD5602096F734004ECD6A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +167,7 @@
 		5ECFD5612096F749004ECD6A /* ZzzPopView */ = {
 			isa = PBXGroup;
 			children = (
+				5E3A3E3D20988A3A0043925B /* ZzzBankCardChoosePopView */,
 				5ECFD5682096F7DD004ECD6A /* Zzz6NumberInputPopView */,
 				5ECFD5652096F79D004ECD6A /* ZzzRegularSelectPopView */,
 				5ECFD5632096F75C004ECD6A /* ZzzStripScrollSelectPopView */,
@@ -331,10 +357,12 @@
 				5EE88B1020941CB8004C59E2 /* DataOneRegularSelectInfo.m in Sources */,
 				5E2DF619208A25DF00E088DB /* DataScrollSelect.m in Sources */,
 				5E2DF603208A1BA300E088DB /* NSArray+MASAdditions.m in Sources */,
+				5E3A3E44209893BE0043925B /* DataBankCardInfo.m in Sources */,
 				5EF61511208A1A0000C7CE85 /* AppDelegate.m in Sources */,
 				5E2DF60E208A24F600E088DB /* ScrollSelectPopView.m in Sources */,
 				5ECFD5722096FFDA004ECD6A /* XTYRandomKeyboard.m in Sources */,
 				5E2DF611208A254500E088DB /* DataRegularSelect.m in Sources */,
+				5E3A3E4020988C7A0043925B /* ZzzBankCardChoosePopView.m in Sources */,
 				5E2DF600208A1BA300E088DB /* MASCompositeConstraint.m in Sources */,
 				5E2DF604208A1BA300E088DB /* View+MASAdditions.m in Sources */,
 				5E2DF60D208A24F600E088DB /* RegularSelectPopView.m in Sources */,
