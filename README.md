@@ -7,7 +7,7 @@
 
 
 - - - 
-### 纵向长条pickerview的
+### 纵向长条pickerview的Popview
 
 文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 
@@ -153,7 +153,7 @@ popView.delegate = self;
 
 
 效果预览：
-![Markdown](http://i1.bvimg.com/603144/19726400ece3232f.png)
+![Markdown]()
 
 使用方法：
 ```
