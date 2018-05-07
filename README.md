@@ -7,7 +7,7 @@
 
 
 - - - 
-### 纵向长条pickerview的Popview
+### 纵向长条pickerview的Popview
 
 文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 
