@@ -16,7 +16,7 @@
 点击选择器之外的空间隐藏Popview，选择时会回调被选中的itemIndex
 
 效果预览：
-![Markdown](http://i1.bvimg.com/603144/b44c6416a601b6fb.png)
+![Ca2m36.png](https://s1.ax1x.com/2018/05/07/Ca2m36.png)
 
 使用方法：
 ```
@@ -123,7 +123,7 @@ popview上的文字都可以创建方法中自定义。
 一个popview解决多种使用场景。
 
 效果预览：
-![Markdown](http://i1.bvimg.com/603144/19726400ece3232f.png)
+![Ca2ngK.png](https://s1.ax1x.com/2018/05/07/Ca2ngK.png)
 
 使用方法：
 ```
@@ -139,8 +139,6 @@ popView.delegate = self;
 
 // 立即显示PopView(在需要显示的时候调用)
 [popView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
-
-
 ```
 
 - - - 
@@ -150,13 +148,68 @@ popView.delegate = self;
 
 传入银行卡的数据，弹出popview，以Tableview的形式让用户需要使用哪一张银行卡。
 
-
-
 效果预览：
-![Markdown]()
+![Ca2ujO.png](https://s1.ax1x.com/2018/05/07/Ca2ujO.png)
 
 使用方法：
 ```
+// 导入头文件
+#import "ZzzBankCardChoosePopView.h"
 
+// 存放银行卡信息数组
+NSMutableArray<DataBankCardInfo *> *cardInfoArr = [NSMutableArray array];       
+
+// 随便弄点测试数据
+cardInfoArr = [NSMutableArray array];
+
+DataBankCardInfo *card1 = [[DataBankCardInfo alloc] init];
+card1.logoNamed = @"AppIcon";
+card1.isSelected = NO;
+card1.bankCardNumber = @"612345678901234000";
+card1.bankName = @"中国工商银行";
+[cardInfoArr addObject:card1];
+
+DataBankCardInfo *card2 = [[DataBankCardInfo alloc] init];
+card2.logoNamed = @"AppIcon";
+card2.isSelected = NO;
+card2.bankCardNumber = @"612345678901234123";
+card2.bankName = @"中国建设银行";
+[cardInfoArr addObject:card2];
+
+DataBankCardInfo *card3 = [[DataBankCardInfo alloc] init];
+card3.logoNamed = @"AppIcon";
+card3.isSelected = YES;
+card3.bankCardNumber = @"612345678901234456";
+card3.bankName = @"中国人民银行";
+[cardInfoArr addObject:card3];
+
+DataBankCardInfo *card4 = [[DataBankCardInfo alloc] init];
+card4.logoNamed = @"AppIcon";
+card4.isSelected = NO;
+card4.bankCardNumber = @"612345678901234789";
+card4.bankName = @"中国农业银行";
+[cardInfoArr addObject:card4];
+
+DataBankCardInfo *card5 = [[DataBankCardInfo alloc] init];
+card5.logoNamed = @"AppIcon";
+card5.isSelected = NO;
+card5.bankCardNumber = @"612345678901234111";
+card5.bankName = @"中国邮政储蓄银行";
+[cardInfoArr addObject:card5];
+
+DataBankCardInfo *card6 = [[DataBankCardInfo alloc] init];
+card6.logoNamed = @"AppIcon";
+card6.isSelected = NO;
+card6.bankCardNumber = @"612345678901234222";
+card6.bankName = @"中国光大银行";
+[cardInfoArr addObject:card6];
+
+// 创建PopView
+ZzzBankCardChoosePopView *zzzBankCardChoosePopView = [ZzzBankCardChoosePopView popviewWithCardBankData:cardInfoArr];
+// 设置代理，接收用户交互的回调
+zzzBankCardChoosePopView.delegate = self;
+
+// 立即显示PopView(在需要显示的时候调用)
+[zzzBankCardChoosePopView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
 ```
 

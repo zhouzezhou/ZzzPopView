@@ -242,12 +242,12 @@
 #pragma mark - Button respond
 -(void) RegularSelectBtnClick: (UIButton *) sender
 {
-    [_regularSelectPopView_body showInView:[UIApplication sharedApplication].keyWindow];
+    [_scrollSelectPopView_motion showInView:[UIApplication sharedApplication].keyWindow];
 }
 
 -(void) StripScrollSelectBtnBtnClick:(UIButton *) sender
 {
-    [_scrollSelectPopView_motion showInView:[UIApplication sharedApplication].keyWindow];
+    [_regularSelectPopView_body showInView:[UIApplication sharedApplication].keyWindow];
 }
 
 -(void) Zzz6NumberInputPopViewBtnClick
