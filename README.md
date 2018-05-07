@@ -7,7 +7,7 @@
 
 
 - - - 
-### 纵向长条pickerview的
+### 纵向长条pickerview的Popview
 
 文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 
@@ -60,7 +60,7 @@ scrollSelectPopView_motion.delegate = self;
 点击选择器之外的空间隐藏Popview，选择时会回调被选中的itemIndex
 
 效果预览：
-![Markdown](http://i2.bvimg.com/603144/5fda8e43c2faa43c.png)
+![CagnmQ.png](https://s1.ax1x.com/2018/05/07/CagnmQ.png)
 
 使用方法：
 ```
