@@ -153,7 +153,7 @@ popView.delegate = self;
 
 
 效果预览：
-![Markdown](http://i1.bvimg.com/603144/19726400ece3232f.png)
+![Markdown]()
 
 使用方法：
 ```
