@@ -4,7 +4,7 @@
 - **纵向TableView的Popview**：文本显示内容，包括标题和详细内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 - **6位数输入Popview**：6位数字输入的popview,当然你也可以在源码里方便的改写成其它位数，提供了明文输入和密码输入两种方式，popview上的文字都可以创建方法中自定义，一个popview解决多种使用场景。
 - **银行卡选择Popview**：选择银行卡的popview，支付系统里经常会用到。
-
+- **起始和终止日期选择Popview**：（未完成）分别选择一个起始日期和一个终止日期的popview
 
 - - - 
 ### 纵向长条pickerview的Popview
@@ -212,4 +212,24 @@ zzzBankCardChoosePopView.delegate = self;
 // 立即显示PopView(在需要显示的时候调用)
 [zzzBankCardChoosePopView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
 ```
+
+- - - 
+### 起始和终止日期选择Popview
+
+分别选择一个起始日期和一个终止日期的popview
+
+日期的格式为yyyy年 MM月 dd日,例如：2018年 05月 08日
+
+可做为查询的条件嵌入项目，非常漂亮且方便。
+
+效果预览：
+![Ca2ujO.png](https://s1.ax1x.com/2018/05/07/Ca2uj2O.png)
+
+使用方法：
+```
+
+
+
+```
+
 

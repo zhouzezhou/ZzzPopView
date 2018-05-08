@@ -198,7 +198,7 @@
 
 -(void) configView
 {
-    _displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kStatusBarHeight + 10, kScreenWidth - 20, kScreenHeight - ((44.f + 10) * 4)  - 10 - kStatusBarHeight - 10)];
+    _displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, kStatusBarHeight + 10, kScreenWidth - 20, kScreenHeight - ((44.f + 10) * 5)  - 10 - kStatusBarHeight - 10)];
     [_displayLabel setNumberOfLines:0];
     [_displayLabel setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [_displayLabel setText:@"日志:"];
@@ -232,6 +232,13 @@
     [ZzzBankCardChoosePopViewBtn.layer setCornerRadius:4.f];
     [ZzzBankCardChoosePopViewBtn addTarget:self action:@selector(ZzzBankCardChoosePopViewBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:ZzzBankCardChoosePopViewBtn];
+    
+    UIButton *ZzzDateSelectPopviewBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, kScreenHeight - (44.f + 10) * 5, kScreenWidth - 20, 44.f)];
+    [ZzzDateSelectPopviewBtn setTitle:@"起始和终止日期选择Popview" forState:UIControlStateNormal];
+    [ZzzDateSelectPopviewBtn setBackgroundColor:[UIColor orangeColor]];
+    [ZzzDateSelectPopviewBtn.layer setCornerRadius:4.f];
+    [ZzzDateSelectPopviewBtn addTarget:self action:@selector(ZzzDateSelectPopviewBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:ZzzDateSelectPopviewBtn];
 }
 
 -(void) setLogText:(NSString *) text
@@ -262,6 +269,11 @@
 -(void) ZzzBankCardChoosePopViewBtnClick
 {
     [self.zzzBankCardChoosePopView showInView:[UIApplication sharedApplication].keyWindow andShowModeUpDown:YES];
+}
+
+-(void) ZzzDateSelectPopviewBtnClick
+{
+    
 }
 
 #pragma mark - Protocol RegularSelectPopViewDelegate
