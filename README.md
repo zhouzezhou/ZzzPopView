@@ -223,13 +223,20 @@ zzzBankCardChoosePopView.delegate = self;
 可做为查询的条件嵌入项目，非常漂亮且方便。
 
 效果预览：
-![Ca2ujO.png](https://s1.ax1x.com/2018/05/07/Ca2uj2O.png)
+![CrTvJx.png](https://s1.ax1x.com/2018/05/14/CrTvJx.png)
 
 使用方法：
 ```
+// 导入头文件
+#import "ZzzDateSelectPopview.h"
 
+// 创建PopView
+ZzzDateSelectPopview *dateSelectPopView = [ZzzDateSelectPopview messagePopviewWithBtnTitle:@"查询" popViewTitle:@"查询条件" popVuewDescrption:@"单次查询最长天数不超过31天"];
+// 设置代理，接收用户交互的回调
+dateSelectPopView.delegate = self;
 
-
+// 立即显示PopView(在需要显示的时候调用)
+[dateSelectPopView showInView:[UIApplication sharedApplication].keyWindow  andShowModeUpDown:YES];
 ```
 
 
