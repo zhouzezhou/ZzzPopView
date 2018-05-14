@@ -172,11 +172,11 @@
               initialSpringVelocity:1
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             _containerView.alpha = 1.0f;
-                             _allBackgroudView.alpha = 0.6f;
+                             self.containerView.alpha = 1.0f;
+                             self.allBackgroudView.alpha = 0.6f;
                              
                              // 从下向上滑入
-                             _containerView.frame = CGRectMake(0, self.screenContent_height * 0.33f , SCREEN_WIDTH, self.screenContent_height * 0.67f);
+                             self.containerView.frame = CGRectMake(0, self.screenContent_height * 0.33f , SCREEN_WIDTH, self.screenContent_height * 0.67f);
                          } completion:^(BOOL finished) {
                              
                          }];
@@ -198,7 +198,7 @@
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              // 从右向左滑入
-                             _containerView.frame = CGRectMake(0, self.screenContent_height * 0.33f , SCREEN_WIDTH, self.screenContent_height * 0.67f);
+                             self.containerView.frame = CGRectMake(0, self.screenContent_height * 0.33f , SCREEN_WIDTH, self.screenContent_height * 0.67f);
                          } completion:^(BOOL finished) {
                              
                          }];
@@ -214,12 +214,12 @@
                          animations:^{
                              
                              //                             _containerView.alpha = 0.0;
-                             _allBackgroudView.alpha = 0.0;
+                             self.allBackgroudView.alpha = 0.0;
                              //                             self.alpha = 0.0;
                              
                              // 从上向下滑出
                              CGRect oriFrame = CGRectMake(0, self.screenContent_height, SCREEN_WIDTH, self.screenContent_height * 0.67f);
-                             _containerView.frame = oriFrame;
+                             self.containerView.frame = oriFrame;
                              
                              // 从左向右滑出
                              //                         CGRect oriFrame = CGRectMake(SCREEN_WIDTH, self.screenContent_height * 0.33f , SCREEN_WIDTH, self.screenContent_height * 0.67f);
@@ -240,7 +240,7 @@
                          animations:^{
                              // 从左向右滑出
                              CGRect oriFrame = CGRectMake(SCREEN_WIDTH, self.screenContent_height * 0.33f , SCREEN_WIDTH, self.screenContent_height * 0.67f);
-                             _containerView.frame = oriFrame;
+                             self.containerView.frame = oriFrame;
                              
                          }
                          completion:^(BOOL finished) {

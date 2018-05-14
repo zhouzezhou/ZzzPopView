@@ -11,6 +11,7 @@
 #import "RegularSelectPopView.h"
 #import "Zzz6NumberInputPopView.h"
 #import "ZzzBankCardChoosePopView.h"
+#import "ZzzDateSelectPopview.h"
 
 // 屏幕的宽度
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -20,7 +21,7 @@
 #define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 
 
-@interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate, Zzz6NumberInputPopViewDelegate, ZzzBankCardChoosePopViewDelegate>
+@interface ViewController () <ScrollSelectPopViewDelegate, RegularSelectPopViewDelegate, Zzz6NumberInputPopViewDelegate, ZzzBankCardChoosePopViewDelegate, ZzzDateSelectPopviewDelegate>
 
 @property (nonatomic, strong) UILabel *displayLabel;    // 打印信息
 
@@ -273,7 +274,9 @@
 
 -(void) ZzzDateSelectPopviewBtnClick
 {
-    
+    ZzzDateSelectPopview *dateSelectPopView = [ZzzDateSelectPopview messagePopviewWithBtnTitle:@"查询" popViewTitle:@"查询条件" popVuewDescrption:@"单次查询最长天数不超过31天"];
+    dateSelectPopView.delegate = self;
+    [dateSelectPopView showInView:[UIApplication sharedApplication].keyWindow  andShowModeUpDown:YES];
 }
 
 #pragma mark - Protocol RegularSelectPopViewDelegate
@@ -385,6 +388,19 @@
 -(void) zzzBankCardChoosePopViewSelectedBankCard:(NSInteger) index
 {
     [self setLogText:[NSString stringWithFormat:@"zzzBankCardChoosePopViewSelectedBankCard itemIndex is :%ld", (long)index]];
+}
+
+
+#pragma mark - ZzzDateSelectPopviewDelegate
+
+-(void) ZzzDateSelectPopviewDelegateClickConfirmBtnWithStartDate:(NSString *) startDate AndEndDate:(NSString *) endDate
+{
+    
+}
+
+-(void) ZzzDateSelectPopviewClickCancelBtn
+{
+    
 }
 
 @end
