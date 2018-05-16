@@ -395,12 +395,12 @@
 
 -(void) ZzzDateSelectPopviewDelegateClickConfirmBtnWithStartDate:(NSString *) startDate AndEndDate:(NSString *) endDate
 {
-    
+    [self setLogText:[NSString stringWithFormat:@"日期选择popview,开始时间：%@，截止时间：%@", startDate, endDate]];
 }
 
 -(void) ZzzDateSelectPopviewClickCancelBtn
 {
-    
+    [self setLogText:@"日期选择popview点击了取消按钮"];
 }
 
 @end
