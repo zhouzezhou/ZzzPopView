@@ -274,7 +274,7 @@
 
 -(void) ZzzDateSelectPopviewBtnClick
 {
-    ZzzDateSelectPopview *dateSelectPopView = [ZzzDateSelectPopview messagePopviewWithBtnTitle:@"查询" popViewTitle:@"查询条件" popVuewDescrption:@"单次查询最长天数不超过31天"];
+    ZzzDateSelectPopview *dateSelectPopView = [ZzzDateSelectPopview messagePopviewWithBtnTitle:@"查询" popViewTitle:@"设置查询条件" popVuewDescrption:@"单次查询最长天数不超过31天"];
     dateSelectPopView.delegate = self;
     [dateSelectPopView showInView:[UIApplication sharedApplication].keyWindow  andShowModeUpDown:YES];
 }
