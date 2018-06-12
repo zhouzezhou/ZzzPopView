@@ -17,7 +17,6 @@
 		5E2DF605208A1BA300E088DB /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF5F9208A1BA300E088DB /* MASConstraint.m */; };
 		5E2DF606208A1BA300E088DB /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF5FB208A1BA300E088DB /* MASViewConstraint.m */; };
 		5E2DF607208A1BA300E088DB /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF5FC208A1BA300E088DB /* MASViewAttribute.m */; };
-		5E2DF608208A1BA300E088DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DF5FD208A1BA300E088DB /* Info.plist */; };
 		5E2DF60D208A24F600E088DB /* RegularSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60B208A24F600E088DB /* RegularSelectPopView.m */; };
 		5E2DF60E208A24F600E088DB /* ScrollSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60C208A24F600E088DB /* ScrollSelectPopView.m */; };
 		5E2DF611208A254500E088DB /* DataRegularSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DF60F208A254500E088DB /* DataRegularSelect.m */; };
@@ -64,7 +63,6 @@
 		5E2DF5FA208A1BA300E088DB /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		5E2DF5FB208A1BA300E088DB /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		5E2DF5FC208A1BA300E088DB /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		5E2DF5FD208A1BA300E088DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2DF609208A24F600E088DB /* RegularSelectPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularSelectPopView.h; sourceTree = "<group>"; };
 		5E2DF60A208A24F600E088DB /* ScrollSelectPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollSelectPopView.h; sourceTree = "<group>"; };
 		5E2DF60B208A24F600E088DB /* RegularSelectPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularSelectPopView.m; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 				5E2DF5FA208A1BA300E088DB /* ViewController+MASAdditions.h */,
 				5E2DF5FB208A1BA300E088DB /* MASViewConstraint.m */,
 				5E2DF5FC208A1BA300E088DB /* MASViewAttribute.m */,
-				5E2DF5FD208A1BA300E088DB /* Info.plist */,
 			);
 			path = Masonry;
 			sourceTree = "<group>";
@@ -363,7 +360,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E2DF608208A1BA300E088DB /* Info.plist in Resources */,
 				5EF6151C208A1A0100C7CE85 /* LaunchScreen.storyboard in Resources */,
 				5EF61519208A1A0100C7CE85 /* Assets.xcassets in Resources */,
 				5EF61517208A1A0000C7CE85 /* Main.storyboard in Resources */,
