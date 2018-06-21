@@ -1,4 +1,7 @@
-# ZzzPopView
+# ZzzPopView - OC版本
+
+swift版本正在开发中。
+
 各种功能的Popview，包括：
 - **纵向长条pickerview的Popview**：文本显示内容，底部可选择是否显示控制按钮（上一个、完成、下一个）
 - **纵向TableView的Popview**：文本显示内容，包括标题和详细内容，底部可选择是否显示控制按钮（上一个、完成、下一个）

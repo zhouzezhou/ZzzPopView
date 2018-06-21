@@ -6,6 +6,9 @@
 //  Copyright © 2018年 zhouzezhou. All rights reserved.
 //
 
+
+// swift版本正在开发中，github地址：https://github.com/zhouzezhou/ZzzPopView_swift
+
 #import "ViewController.h"
 #import "ScrollSelectPopView.h"
 #import "RegularSelectPopView.h"
